@@ -1,6 +1,6 @@
 //
-//  MessageBox.swift
-//  MessageBox
+//  MsgBox.swift
+//  MsgBox
 //
 //  Created by 1amageek on 2018/01/16.
 //  Copyright © 2018年 Stamp Inc. All rights reserved.
@@ -11,13 +11,13 @@ import Pring
 import RealmSwift
 
 /**
- MessageBox
+ MsgBox
 
  Warnings: [Redundant conformance constraint 'Transcript']
  https://bugs.swift.org/browse/SR-6265
  */
 
-public class MessageBox<User: UserDocument, Room: RoomDocument, Transcript, Message: MessageProtocol>: NSObject where Message: RealmSwift.Object, Message.Transcript == Transcript {
+public class MsgBox<User: UserDocument, Room: RoomDocument, Transcript, Message: MessageProtocol>: NSObject where Message: RealmSwift.Object, Message.Transcript == Transcript {
 
     let realm: Realm = try! Realm()
 

@@ -8,8 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		1222F4A5200F390600E137D3 /* MsgBox.h in Headers */ = {isa = PBXBuildFile; fileRef = 1222F4A3200F390600E137D3 /* MsgBox.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1222F4AE200F391F00E137D3 /* MessageProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1222F4AB200F391E00E137D3 /* MessageProtocol.swift */; };
-		1222F4AF200F391F00E137D3 /* MessageBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1222F4AC200F391E00E137D3 /* MessageBox.swift */; };
+		1222F4AE200F391F00E137D3 /* MsgProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1222F4AB200F391E00E137D3 /* MsgProtocol.swift */; };
+		1222F4AF200F391F00E137D3 /* MsgBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1222F4AC200F391E00E137D3 /* MsgBox.swift */; };
 		1222F4B0200F391F00E137D3 /* SessionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1222F4AD200F391E00E137D3 /* SessionController.swift */; };
 		1222F4B8200F392800E137D3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1222F4B7200F392800E137D3 /* AppDelegate.swift */; };
 		1222F4BA200F392800E137D3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1222F4B9200F392800E137D3 /* ViewController.swift */; };
@@ -22,6 +22,9 @@
 		1222F4CE200F393400E137D3 /* Transcript.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1222F4CA200F393400E137D3 /* Transcript.swift */; };
 		1222F4D0200F398300E137D3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1222F4CF200F398300E137D3 /* GoogleService-Info.plist */; };
 		1222F4D2200F39BC00E137D3 /* MsgBox.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 1222F4D1200F39BB00E137D3 /* MsgBox.podspec */; };
+		1222F4DB200F3FDD00E137D3 /* MsgBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1222F4AC200F391E00E137D3 /* MsgBox.swift */; };
+		1222F4DC200F3FDD00E137D3 /* MsgProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1222F4AB200F391E00E137D3 /* MsgProtocol.swift */; };
+		1222F4DD200F3FDD00E137D3 /* SessionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1222F4AD200F391E00E137D3 /* SessionController.swift */; };
 		42AC69302167F5146E312CCF /* Pods_Sample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EF6BEDCBC7DC3AD85244B51 /* Pods_Sample.framework */; };
 		4B606EAE490A27530CAE2DE5 /* Pods_MsgBox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DC6A419B9E56AB534B350B9 /* Pods_MsgBox.framework */; };
 /* End PBXBuildFile section */
@@ -30,8 +33,8 @@
 		1222F4A0200F390600E137D3 /* MsgBox.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MsgBox.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1222F4A3200F390600E137D3 /* MsgBox.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MsgBox.h; sourceTree = "<group>"; };
 		1222F4A4200F390600E137D3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		1222F4AB200F391E00E137D3 /* MessageProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageProtocol.swift; sourceTree = "<group>"; };
-		1222F4AC200F391E00E137D3 /* MessageBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageBox.swift; sourceTree = "<group>"; };
+		1222F4AB200F391E00E137D3 /* MsgProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MsgProtocol.swift; sourceTree = "<group>"; };
+		1222F4AC200F391E00E137D3 /* MsgBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MsgBox.swift; sourceTree = "<group>"; };
 		1222F4AD200F391E00E137D3 /* SessionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionController.swift; sourceTree = "<group>"; };
 		1222F4B5200F392800E137D3 /* Sample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1222F4B7200F392800E137D3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -99,8 +102,8 @@
 			isa = PBXGroup;
 			children = (
 				1222F4A3200F390600E137D3 /* MsgBox.h */,
-				1222F4AC200F391E00E137D3 /* MessageBox.swift */,
-				1222F4AB200F391E00E137D3 /* MessageProtocol.swift */,
+				1222F4AC200F391E00E137D3 /* MsgBox.swift */,
+				1222F4AB200F391E00E137D3 /* MsgProtocol.swift */,
 				1222F4AD200F391E00E137D3 /* SessionController.swift */,
 				1222F4A4200F390600E137D3 /* Info.plist */,
 			);
@@ -375,9 +378,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1222F4AE200F391F00E137D3 /* MessageProtocol.swift in Sources */,
+				1222F4AE200F391F00E137D3 /* MsgProtocol.swift in Sources */,
 				1222F4B0200F391F00E137D3 /* SessionController.swift in Sources */,
-				1222F4AF200F391F00E137D3 /* MessageBox.swift in Sources */,
+				1222F4AF200F391F00E137D3 /* MsgBox.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -386,11 +389,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				1222F4BA200F392800E137D3 /* ViewController.swift in Sources */,
+				1222F4DD200F3FDD00E137D3 /* SessionController.swift in Sources */,
 				1222F4B8200F392800E137D3 /* AppDelegate.swift in Sources */,
 				1222F4CD200F393400E137D3 /* Message.swift in Sources */,
 				1222F4CC200F393400E137D3 /* Room.swift in Sources */,
 				1222F4CB200F393400E137D3 /* User.swift in Sources */,
+				1222F4DB200F3FDD00E137D3 /* MsgBox.swift in Sources */,
 				1222F4CE200F393400E137D3 /* Transcript.swift in Sources */,
+				1222F4DC200F3FDD00E137D3 /* MsgProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

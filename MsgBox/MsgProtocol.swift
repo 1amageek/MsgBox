@@ -1,6 +1,6 @@
 //
-//  MessageProtocol.swift
-//  MessageBox
+//  MsgProtocol.swift
+//  MsgBox
 //
 //  Created by 1amageek on 2018/01/16.
 //  Copyright © 2018年 Stamp Inc. All rights reserved.

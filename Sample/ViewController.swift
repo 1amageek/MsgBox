@@ -7,26 +7,18 @@
 //
 
 import UIKit
-import Firebase
-import FirebaseFirestore
 
-@UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class ViewController: UIViewController {
 
-    var window: UIWindow?
+    var messageBox: MsgBox<Sample.User, Sample.Room, Sample.Transcript, Sample.Message>?
 
-
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        NSSetUncaughtExceptionHandler { exception in
-            debugPrint(exception.name)
-            debugPrint(exception.reason ?? "")
-            debugPrint(exception.callStackSymbols)
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        let user: User = User()
+        user.save { (ref, error) in
+            self.messageBox = MsgBox(userID: ref!.documentID)
         }
 
-        FirebaseApp.configure()
-        let settings: FirestoreSettings = FirestoreSettings()
-        settings.isPersistenceEnabled = true
-        Firestore.firestore().settings = settings
-        return true
+        // Do any additional setup after loading the view, typically from a nib.
     }
 }

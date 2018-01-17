@@ -1,6 +1,6 @@
 //
-//  MessageSessionController.swift
-//  MessageBox
+//  SessionController.swift
+//  MsgBox
 //
 //  Created by 1amageek on 2018/01/16.
 //  Copyright © 2018年 Stamp Inc. All rights reserved.
@@ -10,16 +10,16 @@ import Foundation
 import Pring
 import RealmSwift
 
-extension MessageBox {
-    class SessionController {
+extension MsgBox {
+    public class SessionController {
 
-        let roomID: String
+        public let roomID: String
 
-        let dataSource: DataSource<Transcript>
+        public let dataSource: DataSource<Transcript>
 
-        let realm: Realm = try! Realm()
+        public let realm: Realm = try! Realm()
 
-        init(roomID: String) {
+        public init(roomID: String) {
             self.roomID = roomID
             let room: Room = Room(id: roomID)
             self.dataSource = DataSource<Transcript>.Query(room.transcripts.reference)
