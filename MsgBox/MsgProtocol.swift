@@ -88,12 +88,12 @@ public protocol MessageProtocol {
 
     init(transcript: Transcript)
 
-    static func primaryKey() -> String
+    static func primaryKey() -> String?
 }
 
 public extension MessageProtocol where Self: RealmSwift.Object {
 
-    static func primaryKey() -> String {
+    static func primaryKey() -> String? {
         return "id"
     }
 
