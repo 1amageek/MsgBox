@@ -19,11 +19,12 @@ extension MsgBox {
 
         public let realm: Realm = try! Realm()
 
-        public init(roomID: String) {
+        public init(roomID: String, limit: Int = 30) {
             self.roomID = roomID
             let room: Room = Room(id: roomID)
             self.dataSource = DataSource<Transcript>.Query(room.transcripts.reference)
                 .order(by: "createdAt")
+                .limit(to: limit)
                 .dataSource()
         }
 
@@ -47,6 +48,10 @@ extension MsgBox {
                 case .error(let error): print(error)
                 }
             }).listen()
+        }
+
+        public func next() {
+            self.dataSource.next()
         }
     }
 }
