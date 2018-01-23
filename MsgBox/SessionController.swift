@@ -53,5 +53,18 @@ extension MsgBox {
         public func next() {
             self.dataSource.next()
         }
+
+        public func fetchMembers(_ block: ((Error?) -> Void)?) {
+            let room: Room = Room(id: roomID)
+            room.members
+                .query
+                .dataSource()
+                .onCompleted { [weak self] (_, users) in
+                    guard let realm: Realm = self?.realm else { return }
+                    if !users.isEmpty {
+                        Sender.saveIfNeeded(users: users, realm: realm)
+                    }
+            }.get()
+        }
     }
 }

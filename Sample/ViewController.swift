@@ -10,7 +10,7 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    var messageBox: MsgBox<Sample.User, Sample.Room, Sample.Transcript, Sample.Message>?
+    var messageBox: MsgBox<Sample.User, Sample.Room, Sample.Transcript, Sample.Message, Sample.Sender>?
 
     override func viewDidLoad() {
         super.viewDidLoad()

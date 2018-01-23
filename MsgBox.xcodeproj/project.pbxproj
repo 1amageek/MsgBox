@@ -25,6 +25,7 @@
 		1222F4DB200F3FDD00E137D3 /* MsgBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1222F4AC200F391E00E137D3 /* MsgBox.swift */; };
 		1222F4DC200F3FDD00E137D3 /* MsgProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1222F4AB200F391E00E137D3 /* MsgProtocol.swift */; };
 		1222F4DD200F3FDD00E137D3 /* SessionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1222F4AD200F391E00E137D3 /* SessionController.swift */; };
+		129ACC4620162C91001B4B2F /* Sender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 129ACC4520162C91001B4B2F /* Sender.swift */; };
 		42AC69302167F5146E312CCF /* Pods_Sample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EF6BEDCBC7DC3AD85244B51 /* Pods_Sample.framework */; };
 		4B606EAE490A27530CAE2DE5 /* Pods_MsgBox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DC6A419B9E56AB534B350B9 /* Pods_MsgBox.framework */; };
 /* End PBXBuildFile section */
@@ -49,6 +50,7 @@
 		1222F4CA200F393400E137D3 /* Transcript.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Transcript.swift; sourceTree = "<group>"; };
 		1222F4CF200F398300E137D3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		1222F4D1200F39BB00E137D3 /* MsgBox.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = MsgBox.podspec; sourceTree = "<group>"; };
+		129ACC4520162C91001B4B2F /* Sender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sender.swift; sourceTree = "<group>"; };
 		4DC6A419B9E56AB534B350B9 /* Pods_MsgBox.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MsgBox.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4EF6BEDCBC7DC3AD85244B51 /* Pods_Sample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Sample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		51A399470D1149E109A3AB22 /* Pods-MsgBox.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MsgBox.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MsgBox/Pods-MsgBox.debug.xcconfig"; sourceTree = "<group>"; };
@@ -116,6 +118,7 @@
 				1222F4B7200F392800E137D3 /* AppDelegate.swift */,
 				1222F4B9200F392800E137D3 /* ViewController.swift */,
 				1222F4C9200F393400E137D3 /* Message.swift */,
+				129ACC4520162C91001B4B2F /* Sender.swift */,
 				1222F4C8200F393400E137D3 /* Room.swift */,
 				1222F4CA200F393400E137D3 /* Transcript.swift */,
 				1222F4C7200F393400E137D3 /* User.swift */,
@@ -392,6 +395,7 @@
 				1222F4DD200F3FDD00E137D3 /* SessionController.swift in Sources */,
 				1222F4B8200F392800E137D3 /* AppDelegate.swift in Sources */,
 				1222F4CD200F393400E137D3 /* Message.swift in Sources */,
+				129ACC4620162C91001B4B2F /* Sender.swift in Sources */,
 				1222F4CC200F393400E137D3 /* Room.swift in Sources */,
 				1222F4CB200F393400E137D3 /* User.swift in Sources */,
 				1222F4DB200F3FDD00E137D3 /* MsgBox.swift in Sources */,

@@ -15,7 +15,11 @@ class Room: Object, RoomProtocol {
 
     typealias Transcript = Sample.Transcript
 
+    typealias User = Sample.User
+
     var transcripts: SubCollection<Transcript> = []
+
+    var members: ReferenceCollection<User> = []
 
     dynamic var name: String?
 }

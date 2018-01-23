@@ -10,14 +10,11 @@ import Foundation
 import Pring
 import RealmSwift
 
-/**
- MsgBox
 
- Warnings: [Redundant conformance constraint 'Transcript']
- https://bugs.swift.org/browse/SR-6265
- */
-
-public class MsgBox<User: UserDocument, Room: RoomDocument, Transcript, Message: MessageProtocol>: NSObject where Message: RealmSwift.Object, Message.Transcript == Transcript {
+public class MsgBox<User, Room: RoomDocument, Transcript, Message: MessageProtocol, Sender: SenderProtocol>: NSObject
+where   Message: RealmSwift.Object, Message.Transcript == Transcript,
+        Sender: RealmSwift.Object, Sender.User == User,
+        Room.User == Sender.User {
 
     let realm: Realm = try! Realm()
 

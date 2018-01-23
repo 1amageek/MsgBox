@@ -15,8 +15,8 @@ public typealias MsgUser = UserType & Document
 public typealias MsgRoom = RoomType & Document
 public typealias MsgTranscript = TranscriptType & Document
 
-public typealias UserProtocol = UserType & HasRooms
-public typealias RoomProtocol = RoomType & HasTranscripts
+public typealias UserProtocol = UserType & HasRooms & HasMessageBox
+public typealias RoomProtocol = RoomType & HasTranscripts & HasMembers
 public typealias TranscriptProtocol = TranscriptType & HasContent
 
 public typealias UserDocument = UserProtocol & Document
@@ -31,17 +31,25 @@ public protocol UserType {
     var thumbnail: File? { get }
 }
 
+public protocol HasMessageBox {
+    associatedtype Transcript: MsgTranscript
+    var messageMox: ReferenceCollection<Transcript> { get }
+}
+
 public protocol HasRooms {
     associatedtype Room: MsgRoom
-    associatedtype Transcript: MsgTranscript
     var rooms: SubCollection<Room> { get }
-    var messageMox: ReferenceCollection<Transcript> { get }
 }
 
 // MARK: Room
 
 public protocol RoomType {
     var name: String? { get }
+}
+
+public protocol HasMembers {
+    associatedtype User: UserDocument
+    var members: ReferenceCollection<User> { get }
 }
 
 public protocol HasTranscripts {
@@ -71,6 +79,78 @@ public protocol HasContent {
     var imageMap: [File] { get set }
 }
 
+// MARK: Sender
+
+public protocol SenderProtocol {
+
+    associatedtype User: UserDocument
+
+    var id: String { get set }
+    var createdAt: Date { get set }
+    var updatedAt: Date { get set }
+    var name: String? { get set }
+    var thumbnailImageURL: String? { get set }
+
+    init(user: User)
+
+    static func primaryKey() -> String?
+}
+
+public extension SenderProtocol where Self: RealmSwift.Object {
+
+    static func primaryKey() -> String? {
+        return "id"
+    }
+
+    public init(user: User) {
+        self.init()
+        self.id = user.id
+        self.createdAt = user.createdAt
+        self.updatedAt = user.updatedAt
+        self.name = user.name
+        self.thumbnailImageURL = user.thumbnail?.downloadURL?.absoluteString
+    }
+
+    public static func saveIfNeeded(users: [User], realm: Realm = try! Realm()) {
+        var updateMembers: [Self] = []
+        var insertMembers: [Self] = []
+        users.forEach { (user) in
+            let user: Self = Self(user: user)
+            if let _user = realm.objects(Self.self).filter("id == %@", user.id).first {
+                if _user.updatedAt < user.updatedAt {
+                    updateMembers.append(user)
+                }
+            } else {
+                insertMembers.append(user)
+            }
+        }
+
+        try! realm.write {
+            if !updateMembers.isEmpty {
+                realm.add(updateMembers, update: true)
+            }
+            if !insertMembers.isEmpty {
+                realm.add(insertMembers)
+            }
+        }
+    }
+
+    public static func saveIfNeeded(user: User, realm: Realm = try! Realm()) {
+        let user: Self = Self(user: user)
+        if let _user = realm.objects(Self.self).filter("id == %@", user.id).first {
+            if _user.updatedAt < user.updatedAt {
+                try! realm.write {
+                    realm.add(user, update: true)
+                }
+            }
+        } else {
+            try! realm.write {
+                realm.add(user)
+            }
+        }
+    }
+}
+
 // MARK: Message
 
 public protocol MessageProtocol {
@@ -80,10 +160,8 @@ public protocol MessageProtocol {
     var id: String { get set }
     var roomID: String { get set }
     var userID: String { get set }
-
     var createdAt: Date { get set }
     var updatedAt: Date { get set }
-
     var text: String? { get set }
 
     init(transcript: Transcript)
