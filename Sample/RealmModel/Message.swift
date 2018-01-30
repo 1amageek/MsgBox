@@ -10,20 +10,20 @@ import Foundation
 import RealmSwift
 import Pring
 
+@objcMembers
 class Message: RealmSwift.Object, MessageProtocol {
 
     typealias Transcript = Sample.Transcript
 
-    var id: String = ""
+    dynamic var id: String = ""
 
-    var roomID: String = ""
+    dynamic var roomID: String = ""
 
-    var userID: String = ""
+    dynamic var userID: String = ""
 
-    var createdAt: Date = Date()
+    dynamic var createdAt: Date = Date()
 
-    var updatedAt: Date = Date()
+    dynamic var updatedAt: Date = Date()
 
-    var text: String?
-
+    dynamic var text: String?
 }

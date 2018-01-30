@@ -9,6 +9,9 @@ target 'MsgBox' do
   pod 'Pring'
   pod 'Firebase'
   pod 'Firebase/Firestore'
+  pod 'OnTheKeyboard'
+  pod 'Instantiate'
+  pod 'InstantiateStandard'
   
 end
 
@@ -20,5 +23,8 @@ target 'Sample' do
   pod 'Pring'
   pod 'Firebase'
   pod 'Firebase/Firestore'
+  pod 'OnTheKeyboard'
+  pod 'Instantiate'
+  pod 'InstantiateStandard'
 
 end

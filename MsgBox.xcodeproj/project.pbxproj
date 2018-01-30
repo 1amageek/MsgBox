@@ -7,10 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1217791C2020245000502EED /* Thread.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1217791B2020245000502EED /* Thread.swift */; };
 		1222F4A5200F390600E137D3 /* MsgBox.h in Headers */ = {isa = PBXBuildFile; fileRef = 1222F4A3200F390600E137D3 /* MsgBox.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1222F4AE200F391F00E137D3 /* MsgProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1222F4AB200F391E00E137D3 /* MsgProtocol.swift */; };
 		1222F4AF200F391F00E137D3 /* MsgBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1222F4AC200F391E00E137D3 /* MsgBox.swift */; };
-		1222F4B0200F391F00E137D3 /* SessionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1222F4AD200F391E00E137D3 /* SessionController.swift */; };
 		1222F4B8200F392800E137D3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1222F4B7200F392800E137D3 /* AppDelegate.swift */; };
 		1222F4BA200F392800E137D3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1222F4B9200F392800E137D3 /* ViewController.swift */; };
 		1222F4BD200F392800E137D3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1222F4BB200F392800E137D3 /* Main.storyboard */; };
@@ -24,19 +24,44 @@
 		1222F4D2200F39BC00E137D3 /* MsgBox.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 1222F4D1200F39BB00E137D3 /* MsgBox.podspec */; };
 		1222F4DB200F3FDD00E137D3 /* MsgBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1222F4AC200F391E00E137D3 /* MsgBox.swift */; };
 		1222F4DC200F3FDD00E137D3 /* MsgProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1222F4AB200F391E00E137D3 /* MsgProtocol.swift */; };
-		1222F4DD200F3FDD00E137D3 /* SessionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1222F4AD200F391E00E137D3 /* SessionController.swift */; };
+		124A320B20170C970019DEA7 /* MessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D1FC032017070B00F5D309 /* MessageViewController.swift */; };
+		124A320C20170C970019DEA7 /* ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D1FC002017070A00F5D309 /* ImageView.swift */; };
+		124A320D20170C970019DEA7 /* ImageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 12D1FC042017070B00F5D309 /* ImageView.xib */; };
+		124A320E20170C970019DEA7 /* MessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D1FC052017070B00F5D309 /* MessageView.swift */; };
+		124A320F20170C970019DEA7 /* MessageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 12D1FC082017070C00F5D309 /* MessageView.xib */; };
+		124A321020170C970019DEA7 /* MsgViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D1FC092017070C00F5D309 /* MsgViewCell.swift */; };
+		124A321120170C970019DEA7 /* NameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D1FC022017070A00F5D309 /* NameView.swift */; };
+		124A321220170C970019DEA7 /* NameView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 12D1FC062017070B00F5D309 /* NameView.xib */; };
+		124A321320170C970019DEA7 /* RoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D1FC012017070A00F5D309 /* RoomViewController.swift */; };
+		124A321420170E360019DEA7 /* UIScrollView+Scroll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D1FC072017070B00F5D309 /* UIScrollView+Scroll.swift */; };
+		124A321620170EF20019DEA7 /* RoomViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 124A321520170EF20019DEA7 /* RoomViewCell.swift */; };
+		124A321720170F180019DEA7 /* RoomViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 124A321520170EF20019DEA7 /* RoomViewCell.swift */; };
+		124A321C201713620019DEA7 /* TranscriptController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 124A3218201710800019DEA7 /* TranscriptController.swift */; };
+		124A321D201713620019DEA7 /* RoomController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 124A321A2017108A0019DEA7 /* RoomController.swift */; };
+		124A321E201713630019DEA7 /* TranscriptController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 124A3218201710800019DEA7 /* TranscriptController.swift */; };
+		124A321F201713630019DEA7 /* RoomController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 124A321A2017108A0019DEA7 /* RoomController.swift */; };
 		129ACC4620162C91001B4B2F /* Sender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 129ACC4520162C91001B4B2F /* Sender.swift */; };
+		12D1FC0A2017070C00F5D309 /* ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D1FC002017070A00F5D309 /* ImageView.swift */; };
+		12D1FC0B2017070C00F5D309 /* RoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D1FC012017070A00F5D309 /* RoomViewController.swift */; };
+		12D1FC0C2017070C00F5D309 /* NameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D1FC022017070A00F5D309 /* NameView.swift */; };
+		12D1FC0D2017070C00F5D309 /* MessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D1FC032017070B00F5D309 /* MessageViewController.swift */; };
+		12D1FC0E2017070C00F5D309 /* ImageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 12D1FC042017070B00F5D309 /* ImageView.xib */; };
+		12D1FC0F2017070C00F5D309 /* MessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D1FC052017070B00F5D309 /* MessageView.swift */; };
+		12D1FC102017070C00F5D309 /* NameView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 12D1FC062017070B00F5D309 /* NameView.xib */; };
+		12D1FC112017070C00F5D309 /* UIScrollView+Scroll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D1FC072017070B00F5D309 /* UIScrollView+Scroll.swift */; };
+		12D1FC122017070C00F5D309 /* MessageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 12D1FC082017070C00F5D309 /* MessageView.xib */; };
+		12D1FC132017070C00F5D309 /* MsgViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D1FC092017070C00F5D309 /* MsgViewCell.swift */; };
 		42AC69302167F5146E312CCF /* Pods_Sample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EF6BEDCBC7DC3AD85244B51 /* Pods_Sample.framework */; };
 		4B606EAE490A27530CAE2DE5 /* Pods_MsgBox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DC6A419B9E56AB534B350B9 /* Pods_MsgBox.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1217791B2020245000502EED /* Thread.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Thread.swift; sourceTree = "<group>"; };
 		1222F4A0200F390600E137D3 /* MsgBox.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MsgBox.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1222F4A3200F390600E137D3 /* MsgBox.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MsgBox.h; sourceTree = "<group>"; };
 		1222F4A4200F390600E137D3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1222F4AB200F391E00E137D3 /* MsgProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MsgProtocol.swift; sourceTree = "<group>"; };
 		1222F4AC200F391E00E137D3 /* MsgBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MsgBox.swift; sourceTree = "<group>"; };
-		1222F4AD200F391E00E137D3 /* SessionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionController.swift; sourceTree = "<group>"; };
 		1222F4B5200F392800E137D3 /* Sample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1222F4B7200F392800E137D3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1222F4B9200F392800E137D3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -50,7 +75,20 @@
 		1222F4CA200F393400E137D3 /* Transcript.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Transcript.swift; sourceTree = "<group>"; };
 		1222F4CF200F398300E137D3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		1222F4D1200F39BB00E137D3 /* MsgBox.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = MsgBox.podspec; sourceTree = "<group>"; };
+		124A321520170EF20019DEA7 /* RoomViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomViewCell.swift; sourceTree = "<group>"; };
+		124A3218201710800019DEA7 /* TranscriptController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranscriptController.swift; sourceTree = "<group>"; };
+		124A321A2017108A0019DEA7 /* RoomController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomController.swift; sourceTree = "<group>"; };
 		129ACC4520162C91001B4B2F /* Sender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sender.swift; sourceTree = "<group>"; };
+		12D1FC002017070A00F5D309 /* ImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageView.swift; sourceTree = "<group>"; };
+		12D1FC012017070A00F5D309 /* RoomViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomViewController.swift; sourceTree = "<group>"; };
+		12D1FC022017070A00F5D309 /* NameView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NameView.swift; sourceTree = "<group>"; };
+		12D1FC032017070B00F5D309 /* MessageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageViewController.swift; sourceTree = "<group>"; };
+		12D1FC042017070B00F5D309 /* ImageView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImageView.xib; sourceTree = "<group>"; };
+		12D1FC052017070B00F5D309 /* MessageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageView.swift; sourceTree = "<group>"; };
+		12D1FC062017070B00F5D309 /* NameView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NameView.xib; sourceTree = "<group>"; };
+		12D1FC072017070B00F5D309 /* UIScrollView+Scroll.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIScrollView+Scroll.swift"; sourceTree = "<group>"; };
+		12D1FC082017070C00F5D309 /* MessageView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MessageView.xib; sourceTree = "<group>"; };
+		12D1FC092017070C00F5D309 /* MsgViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MsgViewCell.swift; sourceTree = "<group>"; };
 		4DC6A419B9E56AB534B350B9 /* Pods_MsgBox.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MsgBox.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4EF6BEDCBC7DC3AD85244B51 /* Pods_Sample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Sample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		51A399470D1149E109A3AB22 /* Pods-MsgBox.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MsgBox.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MsgBox/Pods-MsgBox.debug.xcconfig"; sourceTree = "<group>"; };
@@ -79,6 +117,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1217791A2020244200502EED /* RealmModel */ = {
+			isa = PBXGroup;
+			children = (
+				1222F4C9200F393400E137D3 /* Message.swift */,
+				129ACC4520162C91001B4B2F /* Sender.swift */,
+				1217791B2020245000502EED /* Thread.swift */,
+			);
+			path = RealmModel;
+			sourceTree = "<group>";
+		};
 		1222F496200F390600E137D3 = {
 			isa = PBXGroup;
 			children = (
@@ -106,7 +154,9 @@
 				1222F4A3200F390600E137D3 /* MsgBox.h */,
 				1222F4AC200F391E00E137D3 /* MsgBox.swift */,
 				1222F4AB200F391E00E137D3 /* MsgProtocol.swift */,
-				1222F4AD200F391E00E137D3 /* SessionController.swift */,
+				124A3218201710800019DEA7 /* TranscriptController.swift */,
+				124A321A2017108A0019DEA7 /* RoomController.swift */,
+				12D1FC142017073800F5D309 /* UI */,
 				1222F4A4200F390600E137D3 /* Info.plist */,
 			);
 			path = MsgBox;
@@ -117,8 +167,7 @@
 			children = (
 				1222F4B7200F392800E137D3 /* AppDelegate.swift */,
 				1222F4B9200F392800E137D3 /* ViewController.swift */,
-				1222F4C9200F393400E137D3 /* Message.swift */,
-				129ACC4520162C91001B4B2F /* Sender.swift */,
+				1217791A2020244200502EED /* RealmModel */,
 				1222F4C8200F393400E137D3 /* Room.swift */,
 				1222F4CA200F393400E137D3 /* Transcript.swift */,
 				1222F4C7200F393400E137D3 /* User.swift */,
@@ -129,6 +178,24 @@
 				1222F4C3200F392800E137D3 /* Info.plist */,
 			);
 			path = Sample;
+			sourceTree = "<group>";
+		};
+		12D1FC142017073800F5D309 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				12D1FC032017070B00F5D309 /* MessageViewController.swift */,
+				12D1FC002017070A00F5D309 /* ImageView.swift */,
+				12D1FC042017070B00F5D309 /* ImageView.xib */,
+				12D1FC052017070B00F5D309 /* MessageView.swift */,
+				12D1FC082017070C00F5D309 /* MessageView.xib */,
+				12D1FC092017070C00F5D309 /* MsgViewCell.swift */,
+				12D1FC022017070A00F5D309 /* NameView.swift */,
+				12D1FC062017070B00F5D309 /* NameView.xib */,
+				12D1FC012017070A00F5D309 /* RoomViewController.swift */,
+				124A321520170EF20019DEA7 /* RoomViewCell.swift */,
+				12D1FC072017070B00F5D309 /* UIScrollView+Scroll.swift */,
+			);
+			path = UI;
 			sourceTree = "<group>";
 		};
 		AC881D7271A5D7BB5DD60215 /* Pods */ = {
@@ -250,6 +317,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				12D1FC122017070C00F5D309 /* MessageView.xib in Resources */,
+				12D1FC0E2017070C00F5D309 /* ImageView.xib in Resources */,
+				12D1FC102017070C00F5D309 /* NameView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -258,8 +328,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				1222F4C2200F392800E137D3 /* LaunchScreen.storyboard in Resources */,
+				124A321220170C970019DEA7 /* NameView.xib in Resources */,
 				1222F4D0200F398300E137D3 /* GoogleService-Info.plist in Resources */,
+				124A320D20170C970019DEA7 /* ImageView.xib in Resources */,
 				1222F4D2200F39BC00E137D3 /* MsgBox.podspec in Resources */,
+				124A320F20170C970019DEA7 /* MessageView.xib in Resources */,
 				1222F4BF200F392800E137D3 /* Assets.xcassets in Resources */,
 				1222F4BD200F392800E137D3 /* Main.storyboard in Resources */,
 			);
@@ -344,9 +417,13 @@
 				"${BUILT_PRODUCTS_DIR}/BoringSSL/openssl.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/Instantiate/Instantiate.framework",
+				"${BUILT_PRODUCTS_DIR}/InstantiateStandard/InstantiateStandard.framework",
+				"${BUILT_PRODUCTS_DIR}/OnTheKeyboard/OnTheKeyboard.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/Toolbar/Toolbar.framework",
 				"${BUILT_PRODUCTS_DIR}/gRPC/GRPCClient.framework",
 				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
 				"${BUILT_PRODUCTS_DIR}/gRPC-ProtoRPC/ProtoRPC.framework",
@@ -359,9 +436,13 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Instantiate.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/InstantiateStandard.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/OnTheKeyboard.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Toolbar.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GRPCClient.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ProtoRPC.framework",
@@ -381,9 +462,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				124A321620170EF20019DEA7 /* RoomViewCell.swift in Sources */,
+				12D1FC0A2017070C00F5D309 /* ImageView.swift in Sources */,
+				12D1FC0D2017070C00F5D309 /* MessageViewController.swift in Sources */,
 				1222F4AE200F391F00E137D3 /* MsgProtocol.swift in Sources */,
-				1222F4B0200F391F00E137D3 /* SessionController.swift in Sources */,
+				124A321D201713620019DEA7 /* RoomController.swift in Sources */,
+				12D1FC112017070C00F5D309 /* UIScrollView+Scroll.swift in Sources */,
+				12D1FC132017070C00F5D309 /* MsgViewCell.swift in Sources */,
+				12D1FC0B2017070C00F5D309 /* RoomViewController.swift in Sources */,
+				12D1FC0F2017070C00F5D309 /* MessageView.swift in Sources */,
 				1222F4AF200F391F00E137D3 /* MsgBox.swift in Sources */,
+				12D1FC0C2017070C00F5D309 /* NameView.swift in Sources */,
+				124A321C201713620019DEA7 /* TranscriptController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -391,14 +481,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				124A320C20170C970019DEA7 /* ImageView.swift in Sources */,
 				1222F4BA200F392800E137D3 /* ViewController.swift in Sources */,
-				1222F4DD200F3FDD00E137D3 /* SessionController.swift in Sources */,
+				124A321120170C970019DEA7 /* NameView.swift in Sources */,
+				124A321320170C970019DEA7 /* RoomViewController.swift in Sources */,
 				1222F4B8200F392800E137D3 /* AppDelegate.swift in Sources */,
 				1222F4CD200F393400E137D3 /* Message.swift in Sources */,
+				124A320E20170C970019DEA7 /* MessageView.swift in Sources */,
+				124A321F201713630019DEA7 /* RoomController.swift in Sources */,
 				129ACC4620162C91001B4B2F /* Sender.swift in Sources */,
 				1222F4CC200F393400E137D3 /* Room.swift in Sources */,
 				1222F4CB200F393400E137D3 /* User.swift in Sources */,
+				1217791C2020245000502EED /* Thread.swift in Sources */,
+				124A321720170F180019DEA7 /* RoomViewCell.swift in Sources */,
+				124A320B20170C970019DEA7 /* MessageViewController.swift in Sources */,
+				124A321020170C970019DEA7 /* MsgViewCell.swift in Sources */,
+				124A321420170E360019DEA7 /* UIScrollView+Scroll.swift in Sources */,
 				1222F4DB200F3FDD00E137D3 /* MsgBox.swift in Sources */,
+				124A321E201713630019DEA7 /* TranscriptController.swift in Sources */,
 				1222F4CE200F393400E137D3 /* Transcript.swift in Sources */,
 				1222F4DC200F3FDD00E137D3 /* MsgProtocol.swift in Sources */,
 			);

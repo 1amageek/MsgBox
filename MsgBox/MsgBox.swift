@@ -11,10 +11,18 @@ import Pring
 import RealmSwift
 
 
-public class MsgBox<User, Room: RoomDocument, Transcript, Message: MessageProtocol, Sender: SenderProtocol>: NSObject
-where   Message: RealmSwift.Object, Message.Transcript == Transcript,
-        Sender: RealmSwift.Object, Sender.User == User,
-        Room.User == Sender.User {
+public class MsgBox<Thread: ThreadProtocol, Sender: SenderProtocol, Message: MessageProtocol>: NSObject
+
+where
+    Thread: RealmSwift.Object, Sender: RealmSwift.Object, Message: RealmSwift.Object,
+    Thread.Room == Sender.User.Room, Thread.Room == Message.Transcript.Room,
+    Sender.User == Thread.Room.User, Sender.User == Message.Transcript.User,
+    Message.Transcript == Thread.Room.Transcript, Message.Transcript == Sender.User.Transcript
+    {
+
+    public typealias Room = Thread.Room
+    public typealias User = Sender.User
+    public typealias Transcript = Message.Transcript
 
     let realm: Realm = try! Realm()
 
@@ -47,5 +55,10 @@ where   Message: RealmSwift.Object, Message.Transcript == Transcript,
             case .error(let error): print(error)
             }
         }).listen()
+    }
+
+    public class func viewController(userID: String) -> UINavigationController {
+        let viewController: RoomViewController = RoomViewController(userID: userID)
+        return UINavigationController(rootViewController: viewController)
     }
 }

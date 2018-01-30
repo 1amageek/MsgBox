@@ -1,8 +1,8 @@
 //
-//  SessionController.swift
+//  TranscriptController.swift
 //  MsgBox
 //
-//  Created by 1amageek on 2018/01/16.
+//  Created by 1amageek on 2018/01/23.
 //  Copyright © 2018年 Stamp Inc. All rights reserved.
 //
 
@@ -10,8 +10,8 @@ import Foundation
 import Pring
 import RealmSwift
 
-extension MsgBox {
-    public class SessionController {
+public extension MsgBox {
+    public class TranscriptController {
 
         public let roomID: String
 
@@ -64,7 +64,7 @@ extension MsgBox {
                     if !users.isEmpty {
                         Sender.saveIfNeeded(users: users, realm: realm)
                     }
-            }.get()
+                }.get()
         }
     }
 }

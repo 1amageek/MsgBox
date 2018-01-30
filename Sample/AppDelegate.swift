@@ -24,9 +24,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
 
         FirebaseApp.configure()
-        let settings: FirestoreSettings = FirestoreSettings()
-        settings.isPersistenceEnabled = true
-        Firestore.firestore().settings = settings
+//        let settings: FirestoreSettings = FirestoreSettings()
+//        settings.isPersistenceEnabled = true
+//        Firestore.firestore().settings = settings
+
+        let user: User = User(id: "hoge")
+        self.window = UIWindow(frame: UIScreen.main.bounds)
+        self.window?.rootViewController = MsgBox<Sample.Thread, Sample.Sender, Sample.Message>.viewController(userID: "hoge")
+        self.window?.makeKeyAndVisible()
+
         return true
     }
 }

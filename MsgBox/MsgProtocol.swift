@@ -38,7 +38,7 @@ public protocol HasMessageBox {
 
 public protocol HasRooms {
     associatedtype Room: MsgRoom
-    var rooms: SubCollection<Room> { get }
+    var rooms: ReferenceCollection<Room> { get }
 }
 
 // MARK: Room
@@ -50,6 +50,28 @@ public protocol RoomType {
 public protocol HasMembers {
     associatedtype User: UserDocument
     var members: ReferenceCollection<User> { get }
+}
+
+extension HasMembers where Self.User.Room == Self {
+
+    public static func create(users: [User], block: ((Error?) -> Void)?) {
+        let room: Self = Self()
+        users.forEach { (user) in
+            room.members.insert(user)
+            user.rooms.insert(room)
+        }
+        room.save { (_, error) in
+            block?(error)
+        }
+    }
+
+    public func join(user: User, block: ((Error?) -> Void)?) {
+        self.members.insert(user)
+        user.rooms.insert(self)
+        self.update { (error) in
+            block?(error)
+        }
+    }
 }
 
 public protocol HasTranscripts {
@@ -98,7 +120,7 @@ public protocol SenderProtocol {
 
 public extension SenderProtocol where Self: RealmSwift.Object {
 
-    static func primaryKey() -> String? {
+    public static func primaryKey() -> String? {
         return "id"
     }
 
@@ -151,6 +173,77 @@ public extension SenderProtocol where Self: RealmSwift.Object {
     }
 }
 
+// MARK: Thread
+
+public protocol ThreadProtocol {
+
+    associatedtype Room: RoomDocument
+
+    var id: String { get set }
+    var createdAt: Date { get set }
+    var updatedAt: Date { get set }
+    var name: String? { get set }
+    var thumbnailImageURL: String? { get set }
+
+    init(room: Room)
+
+    static func primaryKey() -> String?
+}
+
+public extension ThreadProtocol where Self: RealmSwift.Object {
+
+    public static func primaryKey() -> String? {
+        return "id"
+    }
+
+    public init(room: Room) {
+        self.init()
+        self.id = room.id
+        self.createdAt = room.createdAt
+        self.updatedAt = room.updatedAt
+        self.name = room.name
+    }
+
+    public static func saveIfNeeded(rooms: [Room], realm: Realm = try! Realm()) {
+        var updateThreads: [Self] = []
+        var insertThreads: [Self] = []
+        rooms.forEach { (room) in
+            let thread: Self = Self(room: room)
+            if let _thread = realm.objects(Self.self).filter("id == %@", thread.id).first {
+                if _thread.updatedAt < thread.updatedAt {
+                    updateThreads.append(thread)
+                }
+            } else {
+                insertThreads.append(thread)
+            }
+        }
+
+        try! realm.write {
+            if !updateThreads.isEmpty {
+                realm.add(updateThreads, update: true)
+            }
+            if !insertThreads.isEmpty {
+                realm.add(insertThreads)
+            }
+        }
+    }
+
+    public static func saveIfNeeded(room: Room, realm: Realm = try! Realm()) {
+        let thread: Self = Self(room: room)
+        if let _thread = realm.objects(Self.self).filter("id == %@", thread.id).first {
+            if _thread.updatedAt < thread.updatedAt {
+                try! realm.write {
+                    realm.add(thread, update: true)
+                }
+            }
+        } else {
+            try! realm.write {
+                realm.add(thread)
+            }
+        }
+    }
+}
+
 // MARK: Message
 
 public protocol MessageProtocol {
@@ -171,7 +264,7 @@ public protocol MessageProtocol {
 
 public extension MessageProtocol where Self: RealmSwift.Object {
 
-    static func primaryKey() -> String? {
+    public static func primaryKey() -> String? {
         return "id"
     }
 

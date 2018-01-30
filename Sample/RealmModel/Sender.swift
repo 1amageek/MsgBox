@@ -10,17 +10,18 @@ import Foundation
 import RealmSwift
 import Pring
 
+@objcMembers
 class Sender: RealmSwift.Object, SenderProtocol {
 
     typealias User = Sample.User
 
-    var id: String = ""
+    dynamic var id: String = ""
 
-    var createdAt: Date = Date()
+    dynamic var createdAt: Date = Date()
 
-    var updatedAt: Date = Date()
+    dynamic var updatedAt: Date = Date()
 
-    var name: String?
+    dynamic var name: String?
 
-    var thumbnailImageURL: String?
+    dynamic var thumbnailImageURL: String?
 }
