@@ -55,7 +55,6 @@ extension MsgBox {
 
         public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
             let thread: Thread = self.dataSource[indexPath.item]
-            print(thread)
             return RoomViewCell.dequeue(from: tableView, for: indexPath, with: .init(thread: thread))
         }
 
@@ -63,6 +62,10 @@ extension MsgBox {
             let thread: Thread = self.dataSource[indexPath.item]
             let viewController: MessageViewController = MessageViewController(roomID: thread.id, userID: self.userID)
             self.navigationController?.pushViewController(viewController, animated: true)
+        }
+
+        public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+            return 100
         }
 
         // MARK: - Realm

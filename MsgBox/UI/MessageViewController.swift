@@ -147,7 +147,7 @@ extension MsgBox {
             let room: Room = Room(id: self.roomID)
             transcript.text = text
             transcript.room.set(room)
-            transcript.user.set((User(id: self.userID)))
+            transcript.user.set(User(id: self.userID))
             room.transcripts.insert(transcript)
             room.update(block)
         }
@@ -157,7 +157,7 @@ extension MsgBox {
             let room: Room = Room(id: self.roomID)
             transcript.image = File(data: image, mimeType: mimeType)
             transcript.room.set(room)
-            transcript.user.set((User(id: self.userID)))
+            transcript.user.set(User(id: self.userID))
             room.transcripts.insert(transcript)
             room.update(block)
         }

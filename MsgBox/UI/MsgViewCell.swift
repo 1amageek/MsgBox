@@ -130,7 +130,7 @@ extension MsgBox {
 
         public override func prepareForReuse() {
             super.prepareForReuse()
-            nameView.nameLabel.text = "2222"
+            nameView.nameLabel.text = nil
             nameView.isHidden = true
             pictureView.isHidden = true
             messageView.isHidden = true

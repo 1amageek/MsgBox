@@ -11,11 +11,11 @@ import Pring
 import RealmSwift
 
 
-public class MsgBox<Thread: ThreadProtocol, Sender, Message: MessageProtocol>: NSObject
+public class MsgBox<Thread: ThreadProtocol, Sender, Message>: NSObject
 
 where
     Thread: RealmSwift.Object, Sender: RealmSwift.Object, Message: RealmSwift.Object,
-    Thread.Room == Sender.User.Room, Thread.Room == Message.Transcript.Room,
+    Thread.Room == Sender.User.Room, Thread.Room == Message.Transcript.Room, Thread.Message == Message,
     Sender.User == Thread.Room.User, Sender.User == Message.Transcript.User,
     Message.Transcript == Thread.Room.Transcript, Message.Transcript == Sender.User.Transcript, Message.Sender == Sender
     {
@@ -37,20 +37,22 @@ where
 
     public func listen() {
         self.dataSource.on({ [weak self] (_, change) in
-            guard let realm: Realm = self?.realm else { return }
             switch change {
             case .initial:
                 if let transcripts: [Transcript] = self?.dataSource.documents {
-                    Message.insert(transcripts, realm: realm)
+                    Message.saveIfNeeded(transcripts: transcripts)
                 }
             case .update(deletions: _, insertions: let insertions, modifications: let modifications):
                 if !insertions.isEmpty {
                     let transcripts: [Transcript] = insertions.flatMap { return self?.dataSource[$0] }
-                    Message.insert(transcripts, realm: realm)
+                    Message.saveIfNeeded(transcripts: transcripts)
+                    if let last: Transcript = transcripts.last {
+                        Thread.update(id: last.room.id!, messageID: last.id)
+                    }
                 }
                 if !modifications.isEmpty {
                     let transcripts: [Transcript] = modifications.flatMap { return self?.dataSource[$0] }
-                    Message.insert(transcripts, realm: realm)
+                    Message.saveIfNeeded(transcripts: transcripts)
                 }
             case .error(let error): print(error)
             }

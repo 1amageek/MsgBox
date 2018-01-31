@@ -30,20 +30,19 @@ public extension MsgBox {
 
         public func listen() {
             self.dataSource.on({ [weak self] (_, change) in
-                guard let realm: Realm = self?.realm else { return }
                 switch change {
                 case .initial:
                     if let rooms: [Room] = self?.dataSource.documents {
-                        Thread.saveIfNeeded(rooms: rooms, realm: realm)
+                        Thread.saveIfNeeded(rooms: rooms)
                     }
                 case .update(deletions: _, insertions: let insertions, modifications: let modifications):
                     if !insertions.isEmpty {
                         let rooms: [Room] = insertions.flatMap { return self?.dataSource[$0] }
-                        Thread.saveIfNeeded(rooms: rooms, realm: realm)
+                        Thread.saveIfNeeded(rooms: rooms)
                     }
                     if !modifications.isEmpty {
                         let rooms: [Room] = modifications.flatMap { return self?.dataSource[$0] }
-                        Thread.saveIfNeeded(rooms: rooms, realm: realm)
+                        Thread.saveIfNeeded(rooms: rooms)
                     }
                 case .error(let error): print(error)
                 }
