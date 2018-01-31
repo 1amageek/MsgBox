@@ -11,13 +11,13 @@ import Pring
 import RealmSwift
 
 
-public class MsgBox<Thread: ThreadProtocol, Sender: SenderProtocol, Message: MessageProtocol>: NSObject
+public class MsgBox<Thread: ThreadProtocol, Sender, Message: MessageProtocol>: NSObject
 
 where
     Thread: RealmSwift.Object, Sender: RealmSwift.Object, Message: RealmSwift.Object,
     Thread.Room == Sender.User.Room, Thread.Room == Message.Transcript.Room,
     Sender.User == Thread.Room.User, Sender.User == Message.Transcript.User,
-    Message.Transcript == Thread.Room.Transcript, Message.Transcript == Sender.User.Transcript
+    Message.Transcript == Thread.Room.Transcript, Message.Transcript == Sender.User.Transcript, Message.Sender == Sender
     {
 
     public typealias Room = Thread.Room
@@ -41,16 +41,16 @@ where
             switch change {
             case .initial:
                 if let transcripts: [Transcript] = self?.dataSource.documents {
-                    Message.saveIfNeeded(transcripts: transcripts, realm: realm)
+                    Message.insert(transcripts, realm: realm)
                 }
             case .update(deletions: _, insertions: let insertions, modifications: let modifications):
                 if !insertions.isEmpty {
                     let transcripts: [Transcript] = insertions.flatMap { return self?.dataSource[$0] }
-                    Message.saveIfNeeded(transcripts: transcripts, realm: realm)
+                    Message.insert(transcripts, realm: realm)
                 }
                 if !modifications.isEmpty {
                     let transcripts: [Transcript] = modifications.flatMap { return self?.dataSource[$0] }
-                    Message.saveIfNeeded(transcripts: transcripts, realm: realm)
+                    Message.insert(transcripts, realm: realm)
                 }
             case .error(let error): print(error)
             }

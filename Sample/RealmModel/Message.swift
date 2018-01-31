@@ -15,6 +15,8 @@ class Message: RealmSwift.Object, MessageProtocol {
 
     typealias Transcript = Sample.Transcript
 
+    typealias Sender = Sample.Sender
+
     dynamic var id: String = ""
 
     dynamic var roomID: String = ""
@@ -25,5 +27,11 @@ class Message: RealmSwift.Object, MessageProtocol {
 
     dynamic var updatedAt: Date = Date()
 
+    dynamic var sender: Sender?
+
     dynamic var text: String?
+
+    public override static func primaryKey() -> String? {
+        return "id"
+    }
 }

@@ -16,7 +16,7 @@ extension MsgBox {
     public class MsgViewCell: UITableViewCell, Reusable {
 
         public struct Dependency {
-            let message: Message
+            var message: Message
         }
 
         public func inject(_ dependency: MsgBox<Thread, Sender, Message>.MsgViewCell.Dependency) {
@@ -179,15 +179,17 @@ extension MsgBox {
 
         public override func inject(_ dependency: MsgBox.MsgViewCell.Dependency) {
             super.inject(dependency)
-            self.nameView.isHidden = false
-            User.get(dependency.message.userID) { (user, error) in
-                if let error = error {
-                    print(error)
-                    return
-                }
-//                self.nameView.nameLabel.text = user?.name
-//                self.setNeedsLayout()
-//                self.layoutIfNeeded()
+            if let sender: Sender = dependency.message.sender {
+                self.nameView.isHidden = false
+                self.nameView.nameLabel.text = sender.name
+            } else {
+                Sender.fetchIfNeeded(id: dependency.message.userID, block: { (sender, error) in
+                    if let error = error {
+                        print(error)
+                        return
+                    }
+                    Message.update(id: dependency.message.id, senderID: dependency.message.userID)                
+                })
             }
         }
     }

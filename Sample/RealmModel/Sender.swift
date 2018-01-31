@@ -24,4 +24,8 @@ class Sender: RealmSwift.Object, SenderProtocol {
     dynamic var name: String?
 
     dynamic var thumbnailImageURL: String?
+
+    public override static func primaryKey() -> String? {
+        return "id"
+    }
 }

@@ -54,7 +54,15 @@ extension MsgBox {
         }
 
         public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-            return RoomViewCell.dequeue(from: tableView, for: indexPath)
+            let thread: Thread = self.dataSource[indexPath.item]
+            print(thread)
+            return RoomViewCell.dequeue(from: tableView, for: indexPath, with: .init(thread: thread))
+        }
+
+        public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+            let thread: Thread = self.dataSource[indexPath.item]
+            let viewController: MessageViewController = MessageViewController(roomID: thread.id, userID: self.userID)
+            self.navigationController?.pushViewController(viewController, animated: true)
         }
 
         // MARK: - Realm

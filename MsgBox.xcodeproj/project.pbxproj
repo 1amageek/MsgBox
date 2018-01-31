@@ -24,33 +24,35 @@
 		1222F4D2200F39BC00E137D3 /* MsgBox.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 1222F4D1200F39BB00E137D3 /* MsgBox.podspec */; };
 		1222F4DB200F3FDD00E137D3 /* MsgBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1222F4AC200F391E00E137D3 /* MsgBox.swift */; };
 		1222F4DC200F3FDD00E137D3 /* MsgProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1222F4AB200F391E00E137D3 /* MsgProtocol.swift */; };
-		124A320B20170C970019DEA7 /* MessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D1FC032017070B00F5D309 /* MessageViewController.swift */; };
-		124A320C20170C970019DEA7 /* ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D1FC002017070A00F5D309 /* ImageView.swift */; };
-		124A320D20170C970019DEA7 /* ImageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 12D1FC042017070B00F5D309 /* ImageView.xib */; };
-		124A320E20170C970019DEA7 /* MessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D1FC052017070B00F5D309 /* MessageView.swift */; };
-		124A320F20170C970019DEA7 /* MessageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 12D1FC082017070C00F5D309 /* MessageView.xib */; };
-		124A321020170C970019DEA7 /* MsgViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D1FC092017070C00F5D309 /* MsgViewCell.swift */; };
-		124A321120170C970019DEA7 /* NameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D1FC022017070A00F5D309 /* NameView.swift */; };
-		124A321220170C970019DEA7 /* NameView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 12D1FC062017070B00F5D309 /* NameView.xib */; };
-		124A321320170C970019DEA7 /* RoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D1FC012017070A00F5D309 /* RoomViewController.swift */; };
-		124A321420170E360019DEA7 /* UIScrollView+Scroll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D1FC072017070B00F5D309 /* UIScrollView+Scroll.swift */; };
-		124A321620170EF20019DEA7 /* RoomViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 124A321520170EF20019DEA7 /* RoomViewCell.swift */; };
-		124A321720170F180019DEA7 /* RoomViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 124A321520170EF20019DEA7 /* RoomViewCell.swift */; };
 		124A321C201713620019DEA7 /* TranscriptController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 124A3218201710800019DEA7 /* TranscriptController.swift */; };
 		124A321D201713620019DEA7 /* RoomController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 124A321A2017108A0019DEA7 /* RoomController.swift */; };
 		124A321E201713630019DEA7 /* TranscriptController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 124A3218201710800019DEA7 /* TranscriptController.swift */; };
 		124A321F201713630019DEA7 /* RoomController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 124A321A2017108A0019DEA7 /* RoomController.swift */; };
+		1266EB232021667D005F5F41 /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1266EB222021667D005F5F41 /* UserController.swift */; };
+		1266EB2420216682005F5F41 /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1266EB222021667D005F5F41 /* UserController.swift */; };
+		12799CE0202046BE0091A772 /* MessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D1FC032017070B00F5D309 /* MessageViewController.swift */; };
+		12799CE1202046BE0091A772 /* ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D1FC002017070A00F5D309 /* ImageView.swift */; };
+		12799CE2202046BE0091A772 /* ImageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 12D1FC042017070B00F5D309 /* ImageView.xib */; };
+		12799CE3202046BE0091A772 /* MessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D1FC052017070B00F5D309 /* MessageView.swift */; };
+		12799CE4202046BE0091A772 /* MessageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 12D1FC082017070C00F5D309 /* MessageView.xib */; };
+		12799CE5202046BE0091A772 /* MsgViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D1FC092017070C00F5D309 /* MsgViewCell.swift */; };
+		12799CE6202046BE0091A772 /* NameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D1FC022017070A00F5D309 /* NameView.swift */; };
+		12799CE7202046BE0091A772 /* NameView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 12D1FC062017070B00F5D309 /* NameView.xib */; };
+		12799CE8202046BE0091A772 /* RoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D1FC012017070A00F5D309 /* RoomViewController.swift */; };
+		12799CE9202046BE0091A772 /* RoomViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 124A321520170EF20019DEA7 /* RoomViewCell.swift */; };
+		12799CEB202046BE0091A772 /* UIScrollView+Scroll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D1FC072017070B00F5D309 /* UIScrollView+Scroll.swift */; };
+		12799CEC202046BF0091A772 /* MessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D1FC032017070B00F5D309 /* MessageViewController.swift */; };
+		12799CED202046BF0091A772 /* ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D1FC002017070A00F5D309 /* ImageView.swift */; };
+		12799CEE202046BF0091A772 /* ImageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 12D1FC042017070B00F5D309 /* ImageView.xib */; };
+		12799CEF202046BF0091A772 /* MessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D1FC052017070B00F5D309 /* MessageView.swift */; };
+		12799CF0202046BF0091A772 /* MessageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 12D1FC082017070C00F5D309 /* MessageView.xib */; };
+		12799CF1202046BF0091A772 /* MsgViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D1FC092017070C00F5D309 /* MsgViewCell.swift */; };
+		12799CF2202046BF0091A772 /* NameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D1FC022017070A00F5D309 /* NameView.swift */; };
+		12799CF3202046BF0091A772 /* NameView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 12D1FC062017070B00F5D309 /* NameView.xib */; };
+		12799CF4202046BF0091A772 /* RoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D1FC012017070A00F5D309 /* RoomViewController.swift */; };
+		12799CF5202046BF0091A772 /* RoomViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 124A321520170EF20019DEA7 /* RoomViewCell.swift */; };
+		12799CF7202046BF0091A772 /* UIScrollView+Scroll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D1FC072017070B00F5D309 /* UIScrollView+Scroll.swift */; };
 		129ACC4620162C91001B4B2F /* Sender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 129ACC4520162C91001B4B2F /* Sender.swift */; };
-		12D1FC0A2017070C00F5D309 /* ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D1FC002017070A00F5D309 /* ImageView.swift */; };
-		12D1FC0B2017070C00F5D309 /* RoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D1FC012017070A00F5D309 /* RoomViewController.swift */; };
-		12D1FC0C2017070C00F5D309 /* NameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D1FC022017070A00F5D309 /* NameView.swift */; };
-		12D1FC0D2017070C00F5D309 /* MessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D1FC032017070B00F5D309 /* MessageViewController.swift */; };
-		12D1FC0E2017070C00F5D309 /* ImageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 12D1FC042017070B00F5D309 /* ImageView.xib */; };
-		12D1FC0F2017070C00F5D309 /* MessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D1FC052017070B00F5D309 /* MessageView.swift */; };
-		12D1FC102017070C00F5D309 /* NameView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 12D1FC062017070B00F5D309 /* NameView.xib */; };
-		12D1FC112017070C00F5D309 /* UIScrollView+Scroll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D1FC072017070B00F5D309 /* UIScrollView+Scroll.swift */; };
-		12D1FC122017070C00F5D309 /* MessageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 12D1FC082017070C00F5D309 /* MessageView.xib */; };
-		12D1FC132017070C00F5D309 /* MsgViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D1FC092017070C00F5D309 /* MsgViewCell.swift */; };
 		42AC69302167F5146E312CCF /* Pods_Sample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EF6BEDCBC7DC3AD85244B51 /* Pods_Sample.framework */; };
 		4B606EAE490A27530CAE2DE5 /* Pods_MsgBox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DC6A419B9E56AB534B350B9 /* Pods_MsgBox.framework */; };
 /* End PBXBuildFile section */
@@ -78,6 +80,7 @@
 		124A321520170EF20019DEA7 /* RoomViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomViewCell.swift; sourceTree = "<group>"; };
 		124A3218201710800019DEA7 /* TranscriptController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranscriptController.swift; sourceTree = "<group>"; };
 		124A321A2017108A0019DEA7 /* RoomController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomController.swift; sourceTree = "<group>"; };
+		1266EB222021667D005F5F41 /* UserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
 		129ACC4520162C91001B4B2F /* Sender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sender.swift; sourceTree = "<group>"; };
 		12D1FC002017070A00F5D309 /* ImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageView.swift; sourceTree = "<group>"; };
 		12D1FC012017070A00F5D309 /* RoomViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoomViewController.swift; sourceTree = "<group>"; };
@@ -156,6 +159,7 @@
 				1222F4AB200F391E00E137D3 /* MsgProtocol.swift */,
 				124A3218201710800019DEA7 /* TranscriptController.swift */,
 				124A321A2017108A0019DEA7 /* RoomController.swift */,
+				1266EB222021667D005F5F41 /* UserController.swift */,
 				12D1FC142017073800F5D309 /* UI */,
 				1222F4A4200F390600E137D3 /* Info.plist */,
 			);
@@ -184,11 +188,11 @@
 			isa = PBXGroup;
 			children = (
 				12D1FC032017070B00F5D309 /* MessageViewController.swift */,
+				12D1FC092017070C00F5D309 /* MsgViewCell.swift */,
 				12D1FC002017070A00F5D309 /* ImageView.swift */,
 				12D1FC042017070B00F5D309 /* ImageView.xib */,
 				12D1FC052017070B00F5D309 /* MessageView.swift */,
 				12D1FC082017070C00F5D309 /* MessageView.xib */,
-				12D1FC092017070C00F5D309 /* MsgViewCell.swift */,
 				12D1FC022017070A00F5D309 /* NameView.swift */,
 				12D1FC062017070B00F5D309 /* NameView.xib */,
 				12D1FC012017070A00F5D309 /* RoomViewController.swift */,
@@ -317,9 +321,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				12D1FC122017070C00F5D309 /* MessageView.xib in Resources */,
-				12D1FC0E2017070C00F5D309 /* ImageView.xib in Resources */,
-				12D1FC102017070C00F5D309 /* NameView.xib in Resources */,
+				12799CF0202046BF0091A772 /* MessageView.xib in Resources */,
+				12799CEE202046BF0091A772 /* ImageView.xib in Resources */,
+				12799CF3202046BF0091A772 /* NameView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -328,11 +332,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				1222F4C2200F392800E137D3 /* LaunchScreen.storyboard in Resources */,
-				124A321220170C970019DEA7 /* NameView.xib in Resources */,
+				12799CE7202046BE0091A772 /* NameView.xib in Resources */,
 				1222F4D0200F398300E137D3 /* GoogleService-Info.plist in Resources */,
-				124A320D20170C970019DEA7 /* ImageView.xib in Resources */,
+				12799CE2202046BE0091A772 /* ImageView.xib in Resources */,
 				1222F4D2200F39BC00E137D3 /* MsgBox.podspec in Resources */,
-				124A320F20170C970019DEA7 /* MessageView.xib in Resources */,
+				12799CE4202046BE0091A772 /* MessageView.xib in Resources */,
 				1222F4BF200F392800E137D3 /* Assets.xcassets in Resources */,
 				1222F4BD200F392800E137D3 /* Main.storyboard in Resources */,
 			);
@@ -462,18 +466,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				124A321620170EF20019DEA7 /* RoomViewCell.swift in Sources */,
-				12D1FC0A2017070C00F5D309 /* ImageView.swift in Sources */,
-				12D1FC0D2017070C00F5D309 /* MessageViewController.swift in Sources */,
+				12799CF5202046BF0091A772 /* RoomViewCell.swift in Sources */,
+				12799CED202046BF0091A772 /* ImageView.swift in Sources */,
 				1222F4AE200F391F00E137D3 /* MsgProtocol.swift in Sources */,
+				12799CF2202046BF0091A772 /* NameView.swift in Sources */,
+				12799CF4202046BF0091A772 /* RoomViewController.swift in Sources */,
+				1266EB232021667D005F5F41 /* UserController.swift in Sources */,
 				124A321D201713620019DEA7 /* RoomController.swift in Sources */,
-				12D1FC112017070C00F5D309 /* UIScrollView+Scroll.swift in Sources */,
-				12D1FC132017070C00F5D309 /* MsgViewCell.swift in Sources */,
-				12D1FC0B2017070C00F5D309 /* RoomViewController.swift in Sources */,
-				12D1FC0F2017070C00F5D309 /* MessageView.swift in Sources */,
+				12799CF7202046BF0091A772 /* UIScrollView+Scroll.swift in Sources */,
 				1222F4AF200F391F00E137D3 /* MsgBox.swift in Sources */,
-				12D1FC0C2017070C00F5D309 /* NameView.swift in Sources */,
 				124A321C201713620019DEA7 /* TranscriptController.swift in Sources */,
+				12799CEF202046BF0091A772 /* MessageView.swift in Sources */,
+				12799CF1202046BF0091A772 /* MsgViewCell.swift in Sources */,
+				12799CEC202046BF0091A772 /* MessageViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -481,25 +486,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				124A320C20170C970019DEA7 /* ImageView.swift in Sources */,
 				1222F4BA200F392800E137D3 /* ViewController.swift in Sources */,
-				124A321120170C970019DEA7 /* NameView.swift in Sources */,
-				124A321320170C970019DEA7 /* RoomViewController.swift in Sources */,
+				12799CE0202046BE0091A772 /* MessageViewController.swift in Sources */,
+				12799CE9202046BE0091A772 /* RoomViewCell.swift in Sources */,
 				1222F4B8200F392800E137D3 /* AppDelegate.swift in Sources */,
 				1222F4CD200F393400E137D3 /* Message.swift in Sources */,
-				124A320E20170C970019DEA7 /* MessageView.swift in Sources */,
 				124A321F201713630019DEA7 /* RoomController.swift in Sources */,
 				129ACC4620162C91001B4B2F /* Sender.swift in Sources */,
+				12799CE6202046BE0091A772 /* NameView.swift in Sources */,
 				1222F4CC200F393400E137D3 /* Room.swift in Sources */,
 				1222F4CB200F393400E137D3 /* User.swift in Sources */,
 				1217791C2020245000502EED /* Thread.swift in Sources */,
-				124A321720170F180019DEA7 /* RoomViewCell.swift in Sources */,
-				124A320B20170C970019DEA7 /* MessageViewController.swift in Sources */,
-				124A321020170C970019DEA7 /* MsgViewCell.swift in Sources */,
-				124A321420170E360019DEA7 /* UIScrollView+Scroll.swift in Sources */,
+				12799CE3202046BE0091A772 /* MessageView.swift in Sources */,
 				1222F4DB200F3FDD00E137D3 /* MsgBox.swift in Sources */,
 				124A321E201713630019DEA7 /* TranscriptController.swift in Sources */,
+				12799CEB202046BE0091A772 /* UIScrollView+Scroll.swift in Sources */,
 				1222F4CE200F393400E137D3 /* Transcript.swift in Sources */,
+				12799CE1202046BE0091A772 /* ImageView.swift in Sources */,
+				12799CE8202046BE0091A772 /* RoomViewController.swift in Sources */,
+				1266EB2420216682005F5F41 /* UserController.swift in Sources */,
+				12799CE5202046BE0091A772 /* MsgViewCell.swift in Sources */,
 				1222F4DC200F3FDD00E137D3 /* MsgProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

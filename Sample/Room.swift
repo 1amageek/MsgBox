@@ -17,7 +17,7 @@ class Room: Object, RoomProtocol {
 
     typealias User = Sample.User
 
-    var transcripts: SubCollection<Transcript> = []
+    var transcripts: NestedCollection<Transcript> = []
 
     var members: ReferenceCollection<User> = []
 

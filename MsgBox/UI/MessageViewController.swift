@@ -146,10 +146,10 @@ extension MsgBox {
             var transcript: Transcript = Transcript()
             let room: Room = Room(id: self.roomID)
             transcript.text = text
-            transcript.room.set(room )
-            transcript.user.set((User(id: self.userID) ))
-            room.transcripts.insert(transcript )
-            room.update(nil)
+            transcript.room.set(room)
+            transcript.user.set((User(id: self.userID)))
+            room.transcripts.insert(transcript)
+            room.update(block)
         }
 
         public func send(image: Data, mimeType: File.MIMEType, block: ((Error?) -> Void)? = nil) {
@@ -159,7 +159,7 @@ extension MsgBox {
             transcript.room.set(room)
             transcript.user.set((User(id: self.userID)))
             room.transcripts.insert(transcript)
-            room.update(nil)
+            room.update(block)
         }
 
         // MARK:

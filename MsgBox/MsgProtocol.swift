@@ -76,7 +76,7 @@ extension HasMembers where Self.User.Room == Self {
 
 public protocol HasTranscripts {
     associatedtype Transcript: TranscriptDocument
-    var transcripts: SubCollection<Transcript> { get }
+    var transcripts: NestedCollection<Transcript> { get }
 }
 
 // MARK: Transcript
@@ -120,10 +120,6 @@ public protocol SenderProtocol {
 
 public extension SenderProtocol where Self: RealmSwift.Object {
 
-    public static func primaryKey() -> String? {
-        return "id"
-    }
-
     public init(user: User) {
         self.init()
         self.id = user.id
@@ -131,6 +127,21 @@ public extension SenderProtocol where Self: RealmSwift.Object {
         self.updatedAt = user.updatedAt
         self.name = user.name
         self.thumbnailImageURL = user.thumbnail?.downloadURL?.absoluteString
+    }
+
+    public static func fetchIfNeeded(id: String, realm: Realm = try! Realm(), block: @escaping (Self?, Error?) -> Void) {
+        if let _user = realm.objects(Self.self).filter("id == %@", id).first {
+            block(_user, nil)
+        } else {
+            Self.User.get(id, block: { (user, error) in
+                if let error = error {
+                    block(nil, error)
+                    return
+                }
+                let _user: Self = Self.saveIfNeeded(user: user!)
+                block(_user, nil)
+            })
+        }
     }
 
     public static func saveIfNeeded(users: [User], realm: Realm = try! Realm()) {
@@ -152,12 +163,13 @@ public extension SenderProtocol where Self: RealmSwift.Object {
                 realm.add(updateMembers, update: true)
             }
             if !insertMembers.isEmpty {
-                realm.add(insertMembers)
+                realm.add(insertMembers, update: true)
             }
         }
     }
 
-    public static func saveIfNeeded(user: User, realm: Realm = try! Realm()) {
+    @discardableResult
+    public static func saveIfNeeded(user: User, realm: Realm = try! Realm()) -> Self {
         let user: Self = Self(user: user)
         if let _user = realm.objects(Self.self).filter("id == %@", user.id).first {
             if _user.updatedAt < user.updatedAt {
@@ -167,9 +179,10 @@ public extension SenderProtocol where Self: RealmSwift.Object {
             }
         } else {
             try! realm.write {
-                realm.add(user)
+                realm.add(user, update: true)
             }
         }
+        return user
     }
 }
 
@@ -191,10 +204,6 @@ public protocol ThreadProtocol {
 }
 
 public extension ThreadProtocol where Self: RealmSwift.Object {
-
-    public static func primaryKey() -> String? {
-        return "id"
-    }
 
     public init(room: Room) {
         self.init()
@@ -223,7 +232,7 @@ public extension ThreadProtocol where Self: RealmSwift.Object {
                 realm.add(updateThreads, update: true)
             }
             if !insertThreads.isEmpty {
-                realm.add(insertThreads)
+                realm.add(insertThreads, update: true)
             }
         }
     }
@@ -238,7 +247,7 @@ public extension ThreadProtocol where Self: RealmSwift.Object {
             }
         } else {
             try! realm.write {
-                realm.add(thread)
+                realm.add(thread, update: true)
             }
         }
     }
@@ -249,6 +258,7 @@ public extension ThreadProtocol where Self: RealmSwift.Object {
 public protocol MessageProtocol {
 
     associatedtype Transcript: TranscriptDocument
+    associatedtype Sender: SenderProtocol
 
     var id: String { get set }
     var roomID: String { get set }
@@ -256,17 +266,14 @@ public protocol MessageProtocol {
     var createdAt: Date { get set }
     var updatedAt: Date { get set }
     var text: String? { get set }
+    var sender: Sender? { get set }
 
     init(transcript: Transcript)
 
     static func primaryKey() -> String?
 }
 
-public extension MessageProtocol where Self: RealmSwift.Object {
-
-    public static func primaryKey() -> String? {
-        return "id"
-    }
+public extension MessageProtocol where Self: RealmSwift.Object, Self.Sender: RealmSwift.Object {
 
     public init(transcript: Transcript) {
         self.init()
@@ -278,32 +285,71 @@ public extension MessageProtocol where Self: RealmSwift.Object {
         self.text = transcript.text
     }
 
-    public static func saveIfNeeded(transcripts: [Transcript], realm: Realm = try! Realm()) {
-        var updateMessages: [Self] = []
-        var insertMessages: [Self] = []
-        transcripts.forEach { (transcript) in
-            let message: Self = Self(transcript: transcript)
-            if let _message = realm.objects(Self.self).filter("id == %@", transcript.id).first {
-                if _message.updatedAt < message.updatedAt {
-                    updateMessages.append(message)
-                }
-            } else {
-                insertMessages.append(message)
+    public static func insert(_ transcripts: [Transcript], realm: Realm = try! Realm()) {
+        for (_ ,transcript) in Set(transcripts).enumerated() {
+            guard let id: String = transcript.user.id else {
+                print("Error: Invalid transcript.")
+                continue
             }
-        }
 
-        try! realm.write {
-            if !updateMessages.isEmpty {
-                realm.add(updateMessages, update: true)
-            }
-            if !insertMessages.isEmpty {
-                realm.add(insertMessages)
+            Self.Sender.fetchIfNeeded(id: id, realm: realm) { (sender, error) in
+                if let error = error {
+                    print(error)
+                    return
+                }
+                Self.saveIfNeeded(transcript: transcript, sender: sender, realm: realm)
             }
         }
     }
 
-    public static func saveIfNeeded(transcript: Transcript, realm: Realm = try! Realm()) {
-        let message: Self = Self(transcript: transcript)
+    public static func update(id: String, senderID: String) {
+        let queue: DispatchQueue = DispatchQueue(label: "message.save.queue")
+        queue.async {
+            let realm: Realm = try! Realm()
+            if var message = realm.objects(Self.self).filter("id == %@", id).first {
+                if let sender = realm.objects(Self.Sender.self).filter("id == %@", senderID).first {
+                    try! realm.write {
+                        message.sender = sender
+                        realm.add(message, update: true)
+                    }
+                }
+            }
+        }
+    }
+
+    public static func saveIfNeeded(transcripts: [Transcript]) {
+        let queue: DispatchQueue = DispatchQueue(label: "message.save.queue")
+        queue.async {
+            let realm: Realm = try! Realm()
+            var updateMessages: [Self] = []
+            var insertMessages: [Self] = []
+            for (_ ,transcript) in Set(transcripts).enumerated() {
+                if let _message = realm.objects(Self.self).filter("id == %@", transcript.id).first {
+                    if _message.updatedAt < transcript.updatedAt {
+                        let message: Self = Self(transcript: transcript)
+                        updateMessages.append(message)
+                    }
+                } else {
+                    let message: Self = Self(transcript: transcript)
+                    insertMessages.append(message)
+                }
+            }
+            try! realm.write {
+                if !updateMessages.isEmpty {
+                    realm.add(updateMessages, update: true)
+                }
+                if !insertMessages.isEmpty {
+                    realm.add(insertMessages, update: true)
+                }
+            }
+        }
+    }
+
+    public static func saveIfNeeded(transcript: Transcript, sender: Sender? = nil, realm: Realm = try! Realm()) {
+        var message: Self = Self(transcript: transcript)
+        if let sender: Sender = sender {
+            message.sender = sender
+        }
         if let _message = realm.objects(Self.self).filter("id == %@", transcript.id).first {
             if _message.updatedAt < message.updatedAt {
                 try! realm.write {
@@ -312,7 +358,7 @@ public extension MessageProtocol where Self: RealmSwift.Object {
             }
         } else {
             try! realm.write {
-                realm.add(message)
+                realm.add(message, update: true)
             }
         }
     }

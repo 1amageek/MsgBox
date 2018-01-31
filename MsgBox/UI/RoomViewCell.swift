@@ -12,18 +12,19 @@ import Instantiate
 import InstantiateStandard
 import RealmSwift
 
+extension MsgBox {
+    class RoomViewCell: UITableViewCell, Reusable {
+        @IBOutlet weak var thumbnailImageView: UIImageView!
+        @IBOutlet weak var nameLabel: UILabel!
+        @IBOutlet weak var messageLabel: UILabel!
+        @IBOutlet weak var dateLabel: UILabel!
 
-class RoomViewCell: UITableViewCell, Reusable {
+        struct Dependency {
+            var thread: Thread
+        }
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+        func inject(_ dependency: MsgBox<Thread, Sender, Message>.RoomViewCell.Dependency) {
+            self.textLabel?.text = dependency.thread.name
+        }
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-
 }
