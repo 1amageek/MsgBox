@@ -69,7 +69,7 @@ PODS:
   - nanopb/encode (0.3.8)
   - OnTheKeyboard (0.0.5):
     - Toolbar
-  - Pring (0.6.2):
+  - Pring (0.6.3):
     - Firebase/Core
     - Firebase/Firestore
     - Firebase/Storage
@@ -109,7 +109,7 @@ SPEC CHECKSUMS:
   leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
   OnTheKeyboard: 0a62a0961242eadb78a82cfce05b665796c58091
-  Pring: ff06aff60aba9771db1ffd6b35fb33171cf1c4b8
+  Pring: d6efba5de4c2b77de835cf8f994ab96ad1cd3923
   Protobuf: 8a9838fba8dae3389230e1b7f8c104aa32389c03
   Realm: 09513d7c054678d65cd02ce09871f805b0d758ac
   RealmSwift: e868fee9b10e5490ad94b6b6ecd9027944da1824

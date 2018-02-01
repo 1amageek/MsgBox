@@ -14,8 +14,8 @@ import RealmSwift
 public class MsgBox<Thread: ThreadProtocol, Sender, Message>: NSObject
 
 where
-    Thread: RealmSwift.Object, Sender: RealmSwift.Object, Message: RealmSwift.Object,
-    Thread.Room == Sender.User.Room, Thread.Room == Message.Transcript.Room, Thread.Message == Message,
+    Thread: RealmSwift.Object,
+    Thread.Room == Sender.User.Room, Thread.Room == Message.Transcript.Room, Thread.Message == Message, Thread.Sender == Sender,
     Sender.User == Thread.Room.User, Sender.User == Message.Transcript.User,
     Message.Transcript == Thread.Room.Transcript, Message.Transcript == Sender.User.Transcript, Message.Sender == Sender
     {

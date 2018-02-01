@@ -17,6 +17,8 @@ class Thread: RealmSwift.Object, ThreadProtocol {
 
     typealias Message = Sample.Message
 
+    typealias Sender = Sample.Sender
+
     dynamic var id: String = ""
 
     dynamic var createdAt: Date = Date()
@@ -28,6 +30,8 @@ class Thread: RealmSwift.Object, ThreadProtocol {
     dynamic var thumbnailImageURL: String?
 
     dynamic var lastMessage: Message?
+
+    dynamic var viewers: List<Sender> = .init()
     
     public override static func primaryKey() -> String? {
         return "id"

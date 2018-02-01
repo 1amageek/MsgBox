@@ -19,9 +19,12 @@ public extension MsgBox {
 
         public let realm: Realm = try! Realm()
 
+        public let viewers: DataSource<User>
+
         public init(roomID: String, limit: Int = 30) {
             self.roomID = roomID
             let room: Room = Room(id: roomID)
+            self.viewers = room.viewers.query.dataSource()
             self.dataSource = DataSource<Transcript>.Query(room.transcripts.reference)
                 .order(by: "createdAt")
                 .limit(to: limit)
@@ -29,7 +32,30 @@ public extension MsgBox {
         }
 
         public func listen() {
-            self.dataSource.on({ [weak self] (_, change) in
+
+            let roomID: String = self.roomID
+
+            self.viewers.on { [weak self] (_, change) in
+
+                switch change {
+                case .initial:
+                    if let users: [User] = self?.viewers.documents {
+                        Viewer<User>.saveIfNeeded(users: users, threadID: roomID)
+                    }
+                case .update(deletions: _, insertions: let insertions, modifications: let modifications):
+                    if !insertions.isEmpty {
+                        let users: [User] = insertions.flatMap { return self?.viewers[$0] }
+                        Viewer<User>.saveIfNeeded(users: users, threadID: roomID)
+                    }
+                    if !modifications.isEmpty {
+                        let users: [User] = modifications.flatMap { return self?.viewers[$0] }
+                        Viewer<User>.saveIfNeeded(users: users, threadID: roomID)
+                    }
+                case .error(let error): print(error)
+                }
+            }.listen()
+
+            self.dataSource.on { [weak self] (_, change) in
                 switch change {
                 case .initial:
                     if let transcripts: [Transcript] = self?.dataSource.documents {
@@ -49,7 +75,7 @@ public extension MsgBox {
                     }
                 case .error(let error): print(error)
                 }
-            }).listen()
+            }.listen()
         }
 
         public func next() {

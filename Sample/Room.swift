@@ -21,5 +21,7 @@ class Room: Object, RoomProtocol {
 
     var members: ReferenceCollection<User> = []
 
+    var viewers: ReferenceCollection<User> = []
+
     dynamic var name: String?
 }

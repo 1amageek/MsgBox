@@ -50,6 +50,7 @@ public protocol RoomType {
 public protocol HasMembers {
     associatedtype User: UserDocument
     var members: ReferenceCollection<User> { get }
+    var viewers: ReferenceCollection<User> { get }
 }
 
 extension HasMembers where Self.User.Room == Self {
@@ -188,10 +189,11 @@ public extension SenderProtocol where Self: RealmSwift.Object {
 
 // MARK: Thread
 
-public protocol ThreadProtocol {
+public protocol ThreadProtocol where Self.Message: RealmSwift.Object, Self.Sender: RealmSwift.Object {
 
     associatedtype Room: RoomDocument
     associatedtype Message: MessageProtocol
+    associatedtype Sender: SenderProtocol
 
     var id: String { get set }
     var createdAt: Date { get set }
@@ -199,13 +201,14 @@ public protocol ThreadProtocol {
     var name: String? { get set }
     var thumbnailImageURL: String? { get set }
     var lastMessage: Message? { get set }
+    var viewers: List<Sender> { get set }
 
     init(room: Room)
 
     static func primaryKey() -> String?
 }
 
-public extension ThreadProtocol where Self: RealmSwift.Object, Self.Message: RealmSwift.Object {
+public extension ThreadProtocol where Self: RealmSwift.Object {
 
     public init(room: Room) {
         self.init()
@@ -277,7 +280,7 @@ public extension ThreadProtocol where Self: RealmSwift.Object, Self.Message: Rea
 
 // MARK: Message
 
-public protocol MessageProtocol {
+public protocol MessageProtocol where Sender: RealmSwift.Object {
 
     associatedtype Transcript: TranscriptDocument
     associatedtype Sender: SenderProtocol
@@ -295,7 +298,7 @@ public protocol MessageProtocol {
     static func primaryKey() -> String?
 }
 
-public extension MessageProtocol where Self: RealmSwift.Object, Self.Sender: RealmSwift.Object {
+public extension MessageProtocol where Self: RealmSwift.Object {
 
     public init(transcript: Transcript) {
         self.init()
