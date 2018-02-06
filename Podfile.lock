@@ -58,9 +58,6 @@ PODS:
     - gRPC-Core (= 1.8.6)
     - gRPC-RxLibrary (= 1.8.6)
   - GTMSessionFetcher/Core (1.1.13)
-  - Instantiate (2.2.0)
-  - InstantiateStandard (2.2.0):
-    - Instantiate (~> 2.2)
   - leveldb-library (1.20)
   - nanopb (0.3.8):
     - nanopb/decode (= 0.3.8)
@@ -69,6 +66,21 @@ PODS:
   - nanopb/encode (0.3.8)
   - OnTheKeyboard (0.0.5):
     - Toolbar
+  - PINCache (3.0.1-beta.6):
+    - PINCache/Arc-exception-safe (= 3.0.1-beta.6)
+    - PINCache/Core (= 3.0.1-beta.6)
+  - PINCache/Arc-exception-safe (3.0.1-beta.6):
+    - PINCache/Core
+  - PINCache/Core (3.0.1-beta.6):
+    - PINOperation (~> 1.1.0)
+  - PINOperation (1.1)
+  - PINRemoteImage/Core (3.0.0-beta.13):
+    - PINOperation
+  - PINRemoteImage/iOS (3.0.0-beta.13):
+    - PINRemoteImage/Core
+  - PINRemoteImage/PINCache (3.0.0-beta.13):
+    - PINCache (= 3.0.1-beta.6)
+    - PINRemoteImage/Core
   - Pring (0.6.3):
     - Firebase/Core
     - Firebase/Firestore
@@ -79,16 +91,22 @@ PODS:
   - Realm/Headers (3.1.0)
   - RealmSwift (3.1.0):
     - Realm (= 3.1.0)
+  - Texture (2.6):
+    - Texture/PINRemoteImage (= 2.6)
+  - Texture/Core (2.6)
+  - Texture/PINRemoteImage (2.6):
+    - PINRemoteImage/iOS (= 3.0.0-beta.13)
+    - PINRemoteImage/PINCache
+    - Texture/Core
   - Toolbar (0.1)
 
 DEPENDENCIES:
   - Firebase
   - Firebase/Firestore
-  - Instantiate
-  - InstantiateStandard
   - OnTheKeyboard
   - Pring
   - RealmSwift
+  - Texture
 
 SPEC CHECKSUMS:
   BoringSSL: f3d6b8ce199b9c450a8cfc14895d07a2627fc232
@@ -104,17 +122,19 @@ SPEC CHECKSUMS:
   gRPC-ProtoRPC: 7f3da3b3a90ae851f774c4eec138a9428d54791b
   gRPC-RxLibrary: c1a5f74a2a54022fc386e09fcdd76fc8febd73aa
   GTMSessionFetcher: 5bb1eae636127de695590f50e7d248483eb891e6
-  Instantiate: 9810ecb69b7d0c393e1938559a6f896587785b64
-  InstantiateStandard: 0bf32c19d3624822975e554f3706ca1e83c90ee5
   leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
   OnTheKeyboard: 0a62a0961242eadb78a82cfce05b665796c58091
+  PINCache: d195fdba255283f7e9900a55e3cced377f431f9b
+  PINOperation: 7f042fa6df5b606deb4bd5997654cf7033d5be1d
+  PINRemoteImage: d6d51c5d2adda55f1ce30c96e850b6c4ebd2856a
   Pring: d6efba5de4c2b77de835cf8f994ab96ad1cd3923
   Protobuf: 8a9838fba8dae3389230e1b7f8c104aa32389c03
   Realm: 09513d7c054678d65cd02ce09871f805b0d758ac
   RealmSwift: e868fee9b10e5490ad94b6b6ecd9027944da1824
+  Texture: 7249074582daf75e524e59df5428b66b8e8db0e4
   Toolbar: 3c010be131fca3c88640f5e6cf34ba5626df3506
 
-PODFILE CHECKSUM: 1befaf8bcba2c447db916d2142e4458635f748f0
+PODFILE CHECKSUM: 3320d20951e7a17301c10d05badb2d3c8b2bfe8a
 
 COCOAPODS: 1.4.0.beta.2

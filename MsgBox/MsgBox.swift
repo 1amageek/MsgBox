@@ -60,7 +60,7 @@ where
     }
 
     public class func viewController(userID: String) -> UINavigationController {
-        let viewController: RoomViewController = RoomViewController(userID: userID)
+        let viewController: ThreadViewController = ThreadViewController(userID: userID)//RoomViewController(userID: userID)
         return UINavigationController(rootViewController: viewController)
     }
 }

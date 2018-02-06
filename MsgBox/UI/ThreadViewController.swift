@@ -1,17 +1,19 @@
 //
-//  RoomViewController.swift
-//  Msg
+//  ThreadViewController.swift
+//  MsgBox
 //
-//  Created by 1amageek on 2018/01/23.
+//  Created by 1amageek on 2018/02/02.
 //  Copyright © 2018年 Stamp Inc. All rights reserved.
 //
 
 import UIKit
 import Pring
+import Toolbar
 import RealmSwift
+import AsyncDisplayKit
 
 extension MsgBox {
-    public class RoomViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    class ThreadViewController: ASViewController<ASTableNode>, ASTableDelegate, ASTableDataSource {
 
         let userID: String
 
@@ -20,50 +22,49 @@ extension MsgBox {
         public init(userID: String) {
             self.userID = userID
             self.sessionController = MsgBox.RoomController(userID: userID)
-            super.init(nibName: nil, bundle: nil)
+            super.init(node: tableNode)
         }
 
-        public required init?(coder aDecoder: NSCoder) {
+        required init?(coder aDecoder: NSCoder) {
             fatalError("init(coder:) has not been implemented")
         }
 
-        private(set) lazy var tableView: UITableView = {
-            let view: UITableView = UITableView(frame: self.view.bounds, style: .plain)
-            view.delegate = self
-            view.dataSource = self
-            view.register(type: RoomViewCell.self)
-            view.keyboardDismissMode = .interactive
-            return view
+        lazy var tableNode: ASTableNode = {
+            let node: ASTableNode = ASTableNode(style: .plain)
+            node.delegate = self
+            node.dataSource = self
+            return node
         }()
 
-        public override func loadView() {
-            super.loadView()
-            self.view.addSubview(tableView)
+        var tableView: UITableView {
+            return self.tableNode.view
         }
 
-        public override func viewDidLoad() {
+        override func loadView() {
+            super.loadView()
+            tableNode.view.separatorStyle = .none
+        }
+
+        override func viewDidLoad() {
             super.viewDidLoad()
             self.sessionController.listen()
-            self.view.layoutIfNeeded()
         }
 
-        public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        func tableNode(_ tableNode: ASTableNode, numberOfRowsInSection section: Int) -> Int {
             return self.dataSource.count
         }
 
-        public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        func tableNode(_ tableNode: ASTableNode, didSelectRowAt indexPath: IndexPath) {
             let thread: Thread = self.dataSource[indexPath.item]
-            return RoomViewCell.dequeue(from: tableView, for: indexPath, with: .init(thread: thread))
-        }
-
-        public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-            let thread: Thread = self.dataSource[indexPath.item]
-            let viewController: MessageViewController = MessageViewController(roomID: thread.id, userID: self.userID)
+            let viewController: MsgViewController = MsgViewController(roomID: thread.id, userID: self.userID)
             self.navigationController?.pushViewController(viewController, animated: true)
         }
 
-        public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-            return 100
+        func tableNode(_ tableNode: ASTableNode, nodeBlockForRowAt indexPath: IndexPath) -> ASCellNodeBlock {
+            let dependency: ThreadCellNode.Dependency = ThreadCellNode.Dependency(thread: self.dataSource[indexPath.item])
+            return {
+                return ThreadCellNode(dependency)
+            }
         }
 
         // MARK: - Realm
@@ -98,3 +99,5 @@ extension MsgBox {
         }
     }
 }
+
+

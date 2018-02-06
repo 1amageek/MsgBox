@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AsyncDisplayKit
 
 extension UIScrollView {
 
@@ -15,6 +16,11 @@ extension UIScrollView {
         if let viewController: UIViewController = self.delegate as? UIViewController {
             viewController.viewSafeAreaInsetsDidChange()
         }
+//        print("------")
+//        print(self.bounds)
+//        print(self.safeAreaInsets)
+//        print(self.contentInset)
+//        print(self.contentSize)
     }
 
     var offsetToBottom: CGPoint {
@@ -30,3 +36,19 @@ extension UIScrollView {
         }
     }
 }
+
+//extension ASTableView {
+//
+//    open override func safeAreaInsetsDidChange() {
+//        super.safeAreaInsetsDidChange()
+//
+//        if let proxy: ASTableViewProxy = self.delegate as? ASTableViewProxy {
+//
+//        }
+//
+//        if let viewController: UIViewController = self.delegate as? UIViewController {
+//            viewController.viewSafeAreaInsetsDidChange()
+//        }
+//    }
+//}
+

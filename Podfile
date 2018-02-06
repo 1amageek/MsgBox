@@ -10,8 +10,7 @@ target 'MsgBox' do
   pod 'Firebase'
   pod 'Firebase/Firestore'
   pod 'OnTheKeyboard'
-  pod 'Instantiate'
-  pod 'InstantiateStandard'
+  pod 'Texture'
   
 end
 
@@ -24,7 +23,6 @@ target 'Sample' do
   pod 'Firebase'
   pod 'Firebase/Firestore'
   pod 'OnTheKeyboard'
-  pod 'Instantiate'
-  pod 'InstantiateStandard'
+  pod 'Texture'
 
 end
