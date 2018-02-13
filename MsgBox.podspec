@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "MsgBox"
-  s.version      = "0.0.6"
+  s.version      = "0.1.0"
   s.summary      = "MsgBox can build Chat by linking Firestore and Realm."
   s.description  = <<-DESC
 Since Firestore takes time even when reading from the local, we decided to use Realm locally.
@@ -24,5 +24,6 @@ Since Firestore takes time even when reading from the local, we decided to use R
   s.dependency "Pring"
   s.dependency "Firebase/Core"
   s.dependency "Firebase/Firestore"
-
+  s.dependency "OnTheKeyboard"
+  s.dependency "Texture"
 end
