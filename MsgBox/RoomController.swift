@@ -54,4 +54,3 @@ public extension MsgBox {
         }
     }
 }
-

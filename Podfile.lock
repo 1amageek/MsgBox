@@ -59,6 +59,13 @@ PODS:
     - gRPC-RxLibrary (= 1.9.1)
   - GTMSessionFetcher/Core (1.1.13)
   - leveldb-library (1.20)
+  - MsgBox (0.1.0):
+    - Firebase/Core
+    - Firebase/Firestore
+    - OnTheKeyboard
+    - Pring
+    - RealmSwift
+    - Texture
   - nanopb (0.3.8):
     - nanopb/decode (= 0.3.8)
     - nanopb/encode (= 0.3.8)
@@ -103,6 +110,7 @@ PODS:
 DEPENDENCIES:
   - Firebase
   - Firebase/Firestore
+  - MsgBox
   - OnTheKeyboard
   - Pring
   - RealmSwift
@@ -123,6 +131,7 @@ SPEC CHECKSUMS:
   gRPC-RxLibrary: 8e0067bfe8a054022c7a81470baace4f2f633b48
   GTMSessionFetcher: 5bb1eae636127de695590f50e7d248483eb891e6
   leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
+  MsgBox: be8804b9206fa1c79a0c0388703251e8a7c388a7
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
   OnTheKeyboard: 0a62a0961242eadb78a82cfce05b665796c58091
   PINCache: d195fdba255283f7e9900a55e3cced377f431f9b
@@ -135,6 +144,6 @@ SPEC CHECKSUMS:
   Texture: 7249074582daf75e524e59df5428b66b8e8db0e4
   Toolbar: 3c010be131fca3c88640f5e6cf34ba5626df3506
 
-PODFILE CHECKSUM: 3320d20951e7a17301c10d05badb2d3c8b2bfe8a
+PODFILE CHECKSUM: a9380c7599a263b0a1a6650b41f45ab3e11a9ab6
 
 COCOAPODS: 1.4.0

@@ -10,9 +10,7 @@ import Foundation
 import Pring
 import RealmSwift
 
-
 public class MsgBox<Thread: ThreadProtocol, Sender, Message>: NSObject
-
 where
     Thread: RealmSwift.Object,
     Thread.Room == Sender.User.Room, Thread.Room == Message.Transcript.Room, Thread.Message == Message, Thread.Sender == Sender,

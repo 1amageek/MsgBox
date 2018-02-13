@@ -11,6 +11,8 @@ import FirebaseFirestore
 import Pring
 import RealmSwift
 
+// Protocol
+
 public typealias MsgUser = UserType & Document
 public typealias MsgRoom = RoomType & Document
 public typealias MsgTranscript = TranscriptType & Document
