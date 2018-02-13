@@ -11,7 +11,7 @@ Since Firestore takes time even when reading from the local, we decided to use R
   s.license      = { :type => "MIT", :file => "LICENSE" }
   s.author             = { "1amageek" => "tmy0x3@icloud.com" }
   s.social_media_url   = "http://twitter.com/1amageek"
-  s.platform     = :ios, "10.0"
+  s.platform     = :ios, "11.0"
   # s.ios.deployment_target = "5.0"
   # s.osx.deployment_target = "10.7"
   # s.watchos.deployment_target = "2.0"
