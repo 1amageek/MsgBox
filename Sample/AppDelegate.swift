@@ -28,7 +28,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        settings.isPersistenceEnabled = true
 //        Firestore.firestore().settings = settings
 
-        let user: User = User(id: "hoge")
+//        let user0: User = User(id: "hoge")
+//        let user1: User = User(id: "fuga")
+//        let room: Room = Room()
+//
+//        user0.name = "hoge"
+//        user1.name = "fuga"
+//
+//        room.members.insert(user0)
+//        room.members.insert(user1)
+//        user0.rooms.insert(room)
+//        user1.rooms.insert(room)
+//        room.save()
+
         self.window = UIWindow(frame: UIScreen.main.bounds)
         self.window?.rootViewController = MsgBox<Sample.Thread, Sample.Sender, Sample.Message>.viewController(userID: "hoge")
         self.window?.makeKeyAndVisible()

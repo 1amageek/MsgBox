@@ -49,6 +49,10 @@ extension MsgBox {
             return view
         }()
 
+        var tableNode: ASTableNode {
+            return self.msgView.tableNode
+        }
+
         var tableView: UITableView {
             return self.msgView.tableNode.view
         }
@@ -200,19 +204,18 @@ extension MsgBox {
                 .filter("roomID == %@", self.roomID)
                 .sorted(byKeyPath: "updatedAt", ascending: false)
             self.notificationToken = results.observe { [weak self] (changes: RealmCollectionChange) in
-                guard let tableView = self?.tableView else { return }
+                guard let tableNode = self?.tableNode else { return }
                 switch changes {
-                case .initial: tableView.reloadData()
+                case .initial:
+                    tableNode.reloadData()
                 case .update(_, let deletions, let insertions, let modifications):
-                    tableView.performBatchUpdates({
-                        tableView.insertRows(at: insertions.map({ IndexPath(row: $0, section: 0) }), with: .bottom)
-                        tableView.deleteRows(at: deletions.map({ IndexPath(row: $0, section: 0)}), with: .automatic)
-                        tableView.reloadRows(at: modifications.map({ IndexPath(row: $0, section: 0) }), with: .automatic)
-                    }, completion: { _ in
-//                        UIView.animate(withDuration: 0.3, animations: {
-//                            self?._scrollsToBottom()
-//                        })
-                    })
+                    tableNode.performBatchUpdates({
+                        tableNode.insertRows(at: insertions.map({ IndexPath(row: $0, section: 0) }), with: .automatic)
+                        tableNode.deleteRows(at: deletions.map({ IndexPath(row: $0, section: 0)}), with: .automatic)
+                        tableNode.reloadRows(at: modifications.map({ IndexPath(row: $0, section: 0) }), with: .automatic)
+                    }) { finished in
+
+                    }
                 case .error(let error): fatalError("\(error)")
                 }
             }
@@ -221,12 +224,6 @@ extension MsgBox {
 
         deinit {
             self.notificationToken?.invalidate()
-        }
-
-        func scrollViewDidScroll(_ scrollView: UIScrollView) {
-            print(scrollView.contentSize)
-            print(scrollView.contentInset)
-            print(scrollView.contentOffset)
         }
 
         // MARK:
