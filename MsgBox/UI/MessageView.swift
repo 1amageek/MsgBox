@@ -1,15 +1,40 @@
 //
-//  MessageView.swift
-//  Msg
+//  MsgView.swift
+//  MsgBox
 //
-//  Created by 1amageek on 2018/01/10.
+//  Created by 1amageek on 2018/02/05.
 //  Copyright © 2018年 Stamp Inc. All rights reserved.
 //
 
 import UIKit
-import Instantiate
-import InstantiateStandard
+import AsyncDisplayKit
 
-public class MessageView: UIView, NibInstantiatable {
-    @IBOutlet weak var textLabel: UILabel!
+public class MsgView: ASDisplayNode {
+
+    public let tableNode: ASTableNode = ASTableNode(style: .plain)
+
+    public var tableView: ASTableView {
+        return self.tableNode.view
+    }
+
+    public override init() {
+        super.init()
+        automaticallyManagesSubnodes = true
+    }
+
+//    public override func didLoad() {
+//        super.didLoad()
+//        print(self.tableView.contentSize)
+//        print(self.tableView.contentInset)
+//    }
+//
+//    public override func onDidLoad(_ body: @escaping ASDisplayNodeDidLoadBlock) {
+//        super.onDidLoad(body)
+//        print("onDidLoad", self.tableView.contentSize)
+//        print("onDidLoad", self.tableView.contentInset)
+//    }
+
+    public override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
+        return ASInsetLayoutSpec(insets: UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0), child: tableNode)
+    }
 }

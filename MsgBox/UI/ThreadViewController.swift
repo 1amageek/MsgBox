@@ -8,7 +8,6 @@
 
 import UIKit
 import Pring
-import Toolbar
 import RealmSwift
 import AsyncDisplayKit
 
@@ -56,7 +55,7 @@ extension MsgBox {
 
         func tableNode(_ tableNode: ASTableNode, didSelectRowAt indexPath: IndexPath) {
             let thread: Thread = self.dataSource[indexPath.item]
-            let viewController: MsgViewController = MsgViewController(roomID: thread.id, userID: self.userID)
+            let viewController: MessageViewController = MessageViewController(roomID: thread.id, userID: self.userID)
             self.navigationController?.pushViewController(viewController, animated: true)
         }
 
