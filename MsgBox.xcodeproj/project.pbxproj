@@ -36,8 +36,6 @@
 		124A321F201713630019DEA7 /* RoomController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 124A321A2017108A0019DEA7 /* RoomController.swift */; };
 		125B717C20281AF2009807A8 /* MessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 125B717B20281AF2009807A8 /* MessageView.swift */; };
 		125B717D20281AF2009807A8 /* MessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 125B717B20281AF2009807A8 /* MessageView.swift */; };
-		125B717E20284154009807A8 /* UIScrollView+Scroll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D1FC072017070B00F5D309 /* UIScrollView+Scroll.swift */; };
-		125B717F20284155009807A8 /* UIScrollView+Scroll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D1FC072017070B00F5D309 /* UIScrollView+Scroll.swift */; };
 		129ACC4620162C91001B4B2F /* Sender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 129ACC4520162C91001B4B2F /* Sender.swift */; };
 		12DB4BB62032BDC300F9112C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12DB4BB52032BDC300F9112C /* AppDelegate.swift */; };
 		12DB4BB82032BDC300F9112C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12DB4BB72032BDC300F9112C /* ViewController.swift */; };
@@ -80,7 +78,6 @@
 		125B717B20281AF2009807A8 /* MessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageView.swift; sourceTree = "<group>"; };
 		129ACC4520162C91001B4B2F /* Sender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sender.swift; sourceTree = "<group>"; };
 		12D1FC032017070B00F5D309 /* MessageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageViewController.swift; sourceTree = "<group>"; };
-		12D1FC072017070B00F5D309 /* UIScrollView+Scroll.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIScrollView+Scroll.swift"; sourceTree = "<group>"; };
 		12DB4BB32032BDC300F9112C /* Messenger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Messenger.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		12DB4BB52032BDC300F9112C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		12DB4BB72032BDC300F9112C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -198,7 +195,6 @@
 				120F578C202464CA006C51B0 /* TextCellNode.swift */,
 				120F578F20246E0E006C51B0 /* ThreadViewController.swift */,
 				120F579120246E4A006C51B0 /* ThreadCellNode.swift */,
-				12D1FC072017070B00F5D309 /* UIScrollView+Scroll.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -513,7 +509,6 @@
 				125B717C20281AF2009807A8 /* MessageView.swift in Sources */,
 				1222F4AE200F391F00E137D3 /* MsgProtocol.swift in Sources */,
 				12F479E02022FDEE00CC8423 /* Viewer.swift in Sources */,
-				125B717E20284154009807A8 /* UIScrollView+Scroll.swift in Sources */,
 				124A321D201713620019DEA7 /* RoomController.swift in Sources */,
 				1222F4AF200F391F00E137D3 /* MsgBox.swift in Sources */,
 				124A321C201713620019DEA7 /* TranscriptController.swift in Sources */,
@@ -544,7 +539,6 @@
 				124A321E201713630019DEA7 /* TranscriptController.swift in Sources */,
 				12DB4BC62032C0D700F9112C /* MessageViewController.swift in Sources */,
 				1222F4CE200F393400E137D3 /* Transcript.swift in Sources */,
-				125B717F20284155009807A8 /* UIScrollView+Scroll.swift in Sources */,
 				1222F4DC200F3FDD00E137D3 /* MsgProtocol.swift in Sources */,
 				120F578E202464CA006C51B0 /* TextCellNode.swift in Sources */,
 			);

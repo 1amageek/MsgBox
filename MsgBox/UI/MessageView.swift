@@ -22,18 +22,6 @@ public class MsgView: ASDisplayNode {
         automaticallyManagesSubnodes = true
     }
 
-//    public override func didLoad() {
-//        super.didLoad()
-//        print(self.tableView.contentSize)
-//        print(self.tableView.contentInset)
-//    }
-//
-//    public override func onDidLoad(_ body: @escaping ASDisplayNodeDidLoadBlock) {
-//        super.onDidLoad(body)
-//        print("onDidLoad", self.tableView.contentSize)
-//        print("onDidLoad", self.tableView.contentInset)
-//    }
-
     public override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
         return ASInsetLayoutSpec(insets: UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0), child: tableNode)
     }
